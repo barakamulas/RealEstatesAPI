@@ -28,30 +28,43 @@ public class Sql2oAgentDaoTest {
 
     public Agent setUpNewAgent(){
         Agent agent = new Agent("Maria Kamau","+254 723 456 789","She is great");
+        agentDao.add(agent);
         return agent;
     }
     public Agent setUpAnotherAgent(){
-        Agent agent = new Agent("Fiane Makanja","+255 758 993 875","Amazing customer experience");
-        return agent;
+        Agent otherAgent = new Agent("Fiane Makanja","+255 758 993 875","Amazing customer experience");
+        agentDao.add(otherAgent);
+        return otherAgent;
     }
     @Test
     public void addAgent_getsId() throws Exception{
         Agent agent = setUpNewAgent();
-        agentDao.add(agent);
         assertEquals(1,agent.getId());
     }
     @Test
     public void addAgent_getsAllAgents() throws Exception{
         Agent agent = setUpNewAgent();
-        agentDao.add(agent);
         Agent anotherAgent = setUpAnotherAgent();
-        agentDao.add(anotherAgent);
         assertEquals(2,agentDao.getAgents().size());
     }
     @Test
     public void addAgent_findsAgentById() throws Exception{
         Agent agent = setUpNewAgent();
-        agentDao.add(agent);
         assertEquals(agentDao.findById(agent.getId()), agent);
+    }
+//    @Test
+//    public void addAgent_deletesAgentById() throws Exception {
+//        Agent agent = setUpNewAgent();
+//        Agent otherAgent = setUpAnotherAgent();
+//        assertEquals(2, agentDao.getAgents().size());
+//        agentDao.deleteById(agent.getId());
+//        assertEquals(1, agentDao.getAgents().size());
+//    }
+    @Test
+    public void addAgents_clearAllAgents() throws Exception{
+        Agent agent = setUpNewAgent();
+        Agent otherAgent = setUpAnotherAgent();
+        agentDao.clearAll();
+        assertEquals(0,agentDao.getAgents().size());
     }
 }

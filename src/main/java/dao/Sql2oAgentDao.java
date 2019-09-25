@@ -8,6 +8,7 @@ import org.sql2o.Sql2oException;
 import java.util.List;
 
 public class Sql2oAgentDao implements AgentDao {
+
     private final Sql2o sql2o;
     public Sql2oAgentDao(Sql2o sql2o) { this.sql2o = sql2o; }
 
@@ -45,12 +46,26 @@ public class Sql2oAgentDao implements AgentDao {
     }
 
     @Override
-    public void deleteById(int id) {
-
+    public void deleteById(int id){
+        String sql ="SELECT * FROM agents WHERE id=:id";
+        try (Connection con = sql2o.open()) {
+            con.createQuery(sql)
+                    .addParameter("id",id)
+                    .executeUpdate();
+        }catch (Sql2oException ex) {
+            System.out.println(ex);
+        }
     }
 
     @Override
     public void clearAll() {
+        String sql = "DELETE from agents";
+        try (Connection con = sql2o.open()) {
+            con.createQuery(sql).executeUpdate();
+        } catch (Sql2oException ex) {
+            System.out.println(ex);
+        }
+
 
     }
 }
