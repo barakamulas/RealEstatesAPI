@@ -27,7 +27,10 @@ public class Sql2oAgentDao implements AgentDao {
 
     @Override
     public List<Agent> getAgents() {
-        return null;
+        try (Connection con = sql2o.open()) {
+            return con.createQuery("SELECT * FROM agents")
+                    .executeAndFetch(Agent.class);
+        }
     }
 
     @Override
