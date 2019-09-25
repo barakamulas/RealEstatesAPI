@@ -46,6 +46,21 @@ public class Sql2oAgentDao implements AgentDao {
     }
 
     @Override
+    public void update(int id,String newAgent_name, String newContact, String newAgent_reviews){
+        String sql = "UPDATE agents SET agent_name =:agent_name , contact =:contact, agent_reviews =:agent_reviews WHERE id =:id";
+        try(Connection con = sql2o.open()){
+            con.createQuery(sql)
+                    .addParameter("agent_name", newAgent_name)
+                    .addParameter("id",id)
+                    .addParameter("contact", newContact)
+                    .addParameter("agent_reviews", newAgent_reviews)
+                    .executeUpdate();
+        } catch (Sql2oException ex) {
+            System.out.println(ex);
+        }
+    }
+
+    @Override
     public void deleteById(int id){
         String sql ="DELETE FROM agents WHERE id = :id";
         try (Connection con = sql2o.open()) {

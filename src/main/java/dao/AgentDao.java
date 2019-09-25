@@ -10,7 +10,7 @@ public interface AgentDao {
     List<Agent> getAgents();
 
     Agent findById(int id);
-
+    void update(int id,String agent_name,String contact,String agent_reviews);
     void deleteById(int id);
     void clearAll();
 }
