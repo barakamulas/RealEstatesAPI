@@ -28,73 +28,75 @@ public class Sql2oBuiltDaoTest {
         conn.close();
     }
 
+    @Test
+    public void addingBuiltSetsId() throws Exception {
+        Built testBuilt = setupBuilt();
+        assertNotEquals(0, testBuilt.getId());
+    }
+
+    @Test
+    public void addedBuiltsAreReturnedFromGetAll() throws Exception {
+        Built testBuilt = setupBuilt();
+        assertEquals(1, builtDao.getAll().size());
+    }
+
+
+
 //    @Test
-//    public void addingFoodSetsId() throws Exception {
-//        Restaurant testRestaurant = setupRestaurant();
-//        assertNotEquals(0, testRestaurant.getId());
+//    public void noBuiltsReturnsEmptyList() throws Exception {
+//        assertEquals(0, builtDao.getAll().size());
 //    }
 //
 //    @Test
-//    public void addedRestaurantsAreReturnedFromGetAll() throws Exception {
-//        Restaurant testRestaurant = setupRestaurant();
-//        assertEquals(1, restaurantDao.getAll().size());
-//    }
-//
-//    @Test
-//    public void noRestaurantsReturnsEmptyList() throws Exception {
-//        assertEquals(0, restaurantDao.getAll().size());
-//    }
-//
-//    @Test
-//    public void findByIdReturnsCorrectRestaurant() throws Exception {
-//        Restaurant testRestaurant = setupRestaurant();
-//        Restaurant otherRestaurant = setupRestaurant();
-//        assertEquals(testRestaurant, restaurantDao.findById(testRestaurant.getId()));
+//    public void findByIdReturnsCorrectBuilt() throws Exception {
+//        Built testBuilt = setupBuilt();
+//        Built otherBuilt = setupBuilt();
+//        assertEquals(testBuilt, builtDao.findById(testBuilt.getId()));
 //    }
 //
 //    @Test
 //    public void updateCorrectlyUpdatesAllFields() throws Exception {
-//        Restaurant testRestaurant = setupRestaurant();
-//        restaurantDao.update(testRestaurant.getId(), "a", "b", "c", "d", "e", "f");
-//        Restaurant foundRestaurant = restaurantDao.findById(testRestaurant.getId());
-//        assertEquals("a", foundRestaurant.getName());
-//        assertEquals("b", foundRestaurant.getAddress());
-//        assertEquals("c", foundRestaurant.getZipcode());
-//        assertEquals("d", foundRestaurant.getPhone());
-//        assertEquals("e", foundRestaurant.getWebsite());
-//        assertEquals("f", foundRestaurant.getEmail());
+//        Built testBuilt = setupBuilt();
+//        builtDao.update(testBuilt.getId(), "a", "b", "c", "d", "e", "f");
+//        Built foundBuilt = builtDao.findById(testBuilt.getId());
+//        assertEquals("a", foundBuilt.getName());
+//        assertEquals("b", foundBuilt.getAddress());
+//        assertEquals("c", foundBuilt.getZipcode());
+//        assertEquals("d", foundBuilt.getPhone());
+//        assertEquals("e", foundBuilt.getWebsite());
+//        assertEquals("f", foundBuilt.getEmail());
 //    }
 //
 //    @Test
-//    public void deleteByIdDeletesCorrectRestaurant() throws Exception {
-//        Restaurant testRestaurant = setupRestaurant();
-//        Restaurant otherRestaurant = setupRestaurant();
-//        restaurantDao.deleteById(testRestaurant.getId());
-//        assertEquals(1, restaurantDao.getAll().size());
+//    public void deleteByIdDeletesCorrectBuilt() throws Exception {
+//        Built testBuilt = setupBuilt();
+//        Built otherBuilt = setupBuilt();
+//        builtDao.deleteById(testBuilt.getId());
+//        assertEquals(1, builtDao.getAll().size());
 //    }
 //
 //    @Test
 //    public void clearAll() throws Exception {
-//        Restaurant testRestaurant = setupRestaurant();
-//        Restaurant otherRestaurant = setupRestaurant();
-//        restaurantDao.clearAll();
-//        assertEquals(0, restaurantDao.getAll().size());
+//        Built testBuilt = setupBuilt();
+//        Built otherBuilt = setupBuilt();
+//        builtDao.clearAll();
+//        assertEquals(0, builtDao.getAll().size());
 //    }
 //
 //    public Foodtype setupNewFoodtype() {
 //        return new Foodtype("Sushi");
 //    }
-//
-//    public Built setupBuilt (){
-//        Built testBuilt = new Built("Kasuku Centre Lounge", "Single floor Bar and Lounge", "Kileleshwa", 20000000, "For Sale", "Commercial","+254722222222");
-//        builtDao.add(testBuilt);
-//        return testBuilt;
-//    }
-//
-//    public Built setupAltBuilt (){
-//        Built altBuilt = new Built("Kasuku Centre Lounge", "Single floor Bar and Lounge", "Kileleshwa", 20000000, "For Sale", "Commercial","+254722222222");
-//        builtDao.add(altBuilt);
-//        return altBuilt;
-//    }
+
+    public Built setupBuilt (){
+        Built testBuilt = new Built("Kasuku Centre Lounge", "Single floor Bar and Lounge", "Kileleshwa", 20000000, "For Sale", "Commercial","+254722222222");
+        builtDao.add(testBuilt);
+        return testBuilt;
+    }
+
+    public Built setupAltBuilt (){
+        Built altBuilt = new Built("Kasuku Centre Lounge", "Single floor Bar and Lounge", "Kileleshwa", 20000000, "For Sale", "Commercial","+254722222222");
+        builtDao.add(altBuilt);
+        return altBuilt;
+    }
 
 }
