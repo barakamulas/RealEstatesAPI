@@ -52,6 +52,16 @@ public class Sql2oBuiltDaoTest {
         assertEquals(testBuilt, builtDao.findById(testBuilt.getId()));
     }
 
+
+    @Test
+    public void deleteByIdDeletesCorrectBuilt() throws Exception {
+        Built testBuilt = setupBuilt();
+        Built otherBuilt = setupAltBuilt();
+        builtDao.deleteById(testBuilt.getId());
+        assertEquals(1, builtDao.getAll().size());
+    }
+
+
 //    @Test
 //    public void updateCorrectlyUpdatesAllFields() throws Exception {
 //        Built testBuilt = setupBuilt();
@@ -64,15 +74,7 @@ public class Sql2oBuiltDaoTest {
 //        assertEquals("e", foundBuilt.getWebsite());
 //        assertEquals("f", foundBuilt.getEmail());
 //    }
-//
-//    @Test
-//    public void deleteByIdDeletesCorrectBuilt() throws Exception {
-//        Built testBuilt = setupBuilt();
-//        Built otherBuilt = setupBuilt();
-//        builtDao.deleteById(testBuilt.getId());
-//        assertEquals(1, builtDao.getAll().size());
-//    }
-//
+
 //    @Test
 //    public void clearAll() throws Exception {
 //        Built testBuilt = setupBuilt();

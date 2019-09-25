@@ -13,8 +13,8 @@ public interface BuiltDao {
 
     Built findById(int id);
 
-//    void deleteById(int id);
-//
+    void deleteById(int id);
+
 //    void clearAll();
 
 
