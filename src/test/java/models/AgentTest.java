@@ -64,5 +64,11 @@ public class AgentTest {
         Agent anotherAgent = setUpNewAgent();
         assertTrue(agent.equals(anotherAgent));
     }
+    @Test
+    public void addAgent_showsIfTheCorrectAgentHasBeenAdded() throws Exception{
+        Agent agent = setUpNewAgent();
+        Agent anotherAgent = setUpAnotherAgent();
+        assertFalse(agent.equals(anotherAgent));
+    }
 
 }
