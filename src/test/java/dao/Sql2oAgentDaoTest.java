@@ -47,6 +47,11 @@ public class Sql2oAgentDaoTest {
         Agent anotherAgent = setUpAnotherAgent();
         agentDao.add(anotherAgent);
         assertEquals(2,agentDao.getAgents().size());
-
+    }
+    @Test
+    public void addAgent_findsAgentById() throws Exception{
+        Agent agent = setUpNewAgent();
+        agentDao.add(agent);
+        assertEquals(agentDao.findById(agent.getId()), agent);
     }
 }

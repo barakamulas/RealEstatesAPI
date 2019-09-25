@@ -35,7 +35,13 @@ public class Sql2oAgentDao implements AgentDao {
 
     @Override
     public Agent findById(int id) {
-        return null;
+        try(Connection con = sql2o.open()) {
+            String sql = "SELECT * FROM agents where id=:id";
+            Agent agent = con.createQuery(sql)
+                    .addParameter("id", id)
+                    .executeAndFetchFirst(Agent.class);
+            return agent;
+        }
     }
 
     @Override
