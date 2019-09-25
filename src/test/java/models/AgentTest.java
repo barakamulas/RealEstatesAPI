@@ -34,4 +34,9 @@ public class AgentTest {
         Agent agent = setUpNewAgent();
         assertEquals("+254 723 456 789",agent.getContact());
     }
+    @Test
+    public void addAgent_getAgentReview() throws Exception{
+        Agent agent = setUpNewAgent();
+        assertEquals("She is great",agent.getAgent_reviews());
+    }
 }
