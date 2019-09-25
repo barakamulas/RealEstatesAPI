@@ -70,24 +70,21 @@ public class Sql2oBuiltDaoTest {
     }
 
 
-//    @Test
-//    public void updateCorrectlyUpdatesAllFields() throws Exception {
-//        Built testBuilt = setupBuilt();
-//        builtDao.update(testBuilt.getId(), "a", "b", "c", "d", "e", "f");
-//        Built foundBuilt = builtDao.findById(testBuilt.getId());
-//        assertEquals("a", foundBuilt.getName());
-//        assertEquals("b", foundBuilt.getAddress());
-//        assertEquals("c", foundBuilt.getZipcode());
-//        assertEquals("d", foundBuilt.getPhone());
-//        assertEquals("e", foundBuilt.getWebsite());
-//        assertEquals("f", foundBuilt.getEmail());
-//    }
+    @Test
+    public void updateCorrectlyUpdatesAllFields() throws Exception {
+        Built testBuilt = setupBuilt();
+        builtDao.update(testBuilt.getId(), "a", "b", "c", 1000000, "For Sale", "Commercial", "+254744444444");
+        Built foundBuilt = builtDao.findById(testBuilt.getId());
+        assertEquals("a", foundBuilt.getBuilt_name());
+        assertEquals("b", foundBuilt.getBuilt_description());
+        assertEquals("c", foundBuilt.getBuilt_location());
+        assertEquals("For Sale", foundBuilt.getType());
+        assertEquals("Commercial", foundBuilt.getPurpose());
+        assertEquals("+254744444444", foundBuilt.getContact());
+    }
 
 
 
-//    public Foodtype setupNewFoodtype() {
-//        return new Foodtype("Sushi");
-//    }
 
     public Built setupBuilt (){
         Built testBuilt = new Built("Kasuku Centre Lounge", "Single floor Bar and Lounge", "Kileleshwa", 20000000, "For Sale", "Commercial","+254722222222");
