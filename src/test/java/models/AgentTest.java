@@ -29,4 +29,9 @@ public class AgentTest {
         Agent agent = setUpNewAgent();
         assertEquals("Maria Kamau",agent.getAgent_name());
     }
+    @Test
+    public void addAgent_getContact() throws Exception{
+        Agent agent = setUpNewAgent();
+        assertEquals("+254 723 456 789",agent.getContact());
+    }
 }
