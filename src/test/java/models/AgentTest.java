@@ -49,5 +49,10 @@ public class AgentTest {
         Agent agent = setUpNewAgent();
         assertNotEquals("0734 567 345",agent.getContact());
     }
+    @Test
+    public void addAgent_getsTheCorrectReview() throws Exception{
+        Agent agent = setUpNewAgent();
+        assertNotEquals("Bad fruit in the making",agent.getAgent_reviews());
+    }
 
 }
