@@ -62,4 +62,16 @@ public class SellingTest {
         assertEquals("+453261",setUpNewLand().getContact());
     }
 
+    @Test
+    public void getSize_SellingInstantiatesWithLandSize_true() {
+        assertEquals(2,setUpNewLand().getSize());
+    }
+
+    @Test
+    public void equals_returnsTrueIfTwoEntriesAreSame_true() {
+        Selling firstLand = setUpNewLand();
+        Selling secondLand = setUpNewLand();
+
+        assertTrue(firstLand.equals(secondLand));
+    }
 }
