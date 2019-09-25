@@ -12,14 +12,14 @@ import static org.junit.Assert.*;
 public class Sql2oBuiltDaoTest {
 
     private Connection conn;
-    private Sql2oBuiltDao builtDao;
+    private models.dao.Sql2oBuiltDao builtDao;
 
 
     @Before
     public void setUp() throws Exception {
         String connectionString = "jdbc:h2:mem:testing;INIT=RUNSCRIPT from 'classpath:db/create.sql'";
         Sql2o sql2o = new Sql2o(connectionString, "", "");
-        builtDao = new Sql2oBuiltDao(sql2o);
+        builtDao = new models.dao.Sql2oBuiltDao(sql2o);
         conn = sql2o.open();
     }
 
