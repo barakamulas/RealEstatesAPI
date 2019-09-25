@@ -39,4 +39,10 @@ public class AgentTest {
         Agent agent = setUpNewAgent();
         assertEquals("She is great",agent.getAgent_reviews());
     }
+    @Test
+    public void addAgent_getsTheCorrectName(){
+        Agent agent = setUpNewAgent();
+        assertNotEquals("Diana",agent.getAgent_name());
+    }
+
 }
