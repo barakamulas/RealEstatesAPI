@@ -24,4 +24,9 @@ public class AgentTest {
         Agent agent = setUpNewAgent();
         assertTrue(agent instanceof Agent);
     }
+    @Test
+    public void addAgent_getName()throws Exception{
+        Agent agent = setUpNewAgent();
+        assertEquals("Maria Kamau",agent.getAgent_name());
+    }
 }
