@@ -5,7 +5,7 @@ import java.util.Objects;
 public class Selling {
     private String land_name;
     private String land_description;
-    private String land_type;
+    private String selling_type;
     private int land_price;
     private String purpose;
     private String contact;
@@ -13,10 +13,10 @@ public class Selling {
     private int size;
     private int id ;
 
-    public Selling(String land_name,String land_description,String land_type,int land_price,String purpose,String contact,String land_location, int size){
+    public Selling(String land_name,String land_description,String selling_type,int land_price,String purpose,String contact,String land_location, int size){
         this.land_name = land_name;
         this.land_description = land_description;
-        this.land_type = land_type;
+        this.selling_type = selling_type;
         this.land_price = land_price;
         this.purpose = purpose;
         this.contact = contact;
@@ -33,8 +33,8 @@ public class Selling {
         return land_description;
     }
 
-    public String getLand_type() {
-        return land_type;
+    public String getSelling_type() {
+        return selling_type;
     }
 
     public int getLand_price() {
@@ -69,8 +69,8 @@ public class Selling {
         this.land_description = land_description;
     }
 
-    public void setLand_type(String land_type) {
-        this.land_type = land_type;
+    public void setSelling_type(String land_type) {
+        this.selling_type = land_type;
     }
 
     public void setLand_price(int land_price) {
@@ -107,7 +107,7 @@ public class Selling {
                 id == selling.id &&
                 Objects.equals(land_name, selling.land_name) &&
                 Objects.equals(land_description, selling.land_description) &&
-                Objects.equals(land_type, selling.land_type) &&
+                Objects.equals(selling_type, selling.selling_type) &&
                 Objects.equals(purpose, selling.purpose) &&
                 Objects.equals(contact, selling.contact) &&
                 Objects.equals(land_location, selling.land_location);
@@ -115,6 +115,6 @@ public class Selling {
 
     @Override
     public int hashCode() {
-        return Objects.hash(land_name, land_description, land_type, land_price, purpose, contact, land_location, size, id);
+        return Objects.hash(land_name, land_description, selling_type, land_price, purpose, contact, land_location, size, id);
     }
 }
