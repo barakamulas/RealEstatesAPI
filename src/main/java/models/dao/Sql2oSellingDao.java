@@ -47,11 +47,12 @@ public class Sql2oSellingDao implements SellingDao{
     //implementation for update method
     @Override
     public void update(int id,String Nland_name,String Nland_description,String Nselling_type,int Nland_price,String Npurpose,String Ncontact,String Nland_location, int Nsize) {
-        String sql = "UPDATE selling SET (land_name,land_description,selling_type,land_price, purpose, contact,land_location, size) = " +
-                "(:land_name,:land_description,:selling_type,:land_price, :purpose, :contact,:land_location, :size) WHERE id = :id;";
+        String sql = "UPDATE selling SET land_name=:land_name,land_description=:land_description,selling_type=" +
+                ":selling_type,land_price=:land_price, purpose=:purpose, contact=:contact,land_location=:land_location, size =:size WHERE id=:id";
 
         try(Connection con = sql2o.open()){
             con.createQuery(sql)
+                    .addParameter("id",id)
                     .addParameter("land_name",Nland_name)
                     .addParameter("land_description",Nland_description)
                     .addParameter("selling_type",Nselling_type)
