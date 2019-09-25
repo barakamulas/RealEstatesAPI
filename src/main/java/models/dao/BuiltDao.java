@@ -15,12 +15,10 @@ public interface BuiltDao {
 
     void deleteById(int id);
 
-//    void clearAll();
-
+    void clearAll();
 
     //update
     //omit for now
 
-    //delete
 
 }

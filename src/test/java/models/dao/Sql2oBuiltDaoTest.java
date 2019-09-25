@@ -61,6 +61,14 @@ public class Sql2oBuiltDaoTest {
         assertEquals(1, builtDao.getAll().size());
     }
 
+    @Test
+    public void clearAll() throws Exception {
+        Built testBuilt = setupBuilt();
+        Built otherBuilt = setupBuilt();
+        builtDao.clearAll();
+        assertEquals(0, builtDao.getAll().size());
+    }
+
 
 //    @Test
 //    public void updateCorrectlyUpdatesAllFields() throws Exception {
@@ -75,14 +83,8 @@ public class Sql2oBuiltDaoTest {
 //        assertEquals("f", foundBuilt.getEmail());
 //    }
 
-//    @Test
-//    public void clearAll() throws Exception {
-//        Built testBuilt = setupBuilt();
-//        Built otherBuilt = setupBuilt();
-//        builtDao.clearAll();
-//        assertEquals(0, builtDao.getAll().size());
-//    }
-//
+
+
 //    public Foodtype setupNewFoodtype() {
 //        return new Foodtype("Sushi");
 //    }
