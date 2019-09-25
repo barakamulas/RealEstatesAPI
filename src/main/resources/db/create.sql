@@ -1,4 +1,4 @@
-USE MODE PostgreSQL;
+SET MODE PostgreSQL;
 
 CREATE TABLE IF NOT EXISTS selling(
     id int PRIMARY KEY auto_increment,
