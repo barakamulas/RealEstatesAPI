@@ -44,5 +44,10 @@ public class AgentTest {
         Agent agent = setUpNewAgent();
         assertNotEquals("Diana",agent.getAgent_name());
     }
+    @Test
+    public  void addAgent_getsTheCorrectContact() throws Exception{
+        Agent agent = setUpNewAgent();
+        assertNotEquals("0734 567 345",agent.getContact());
+    }
 
 }
