@@ -11,6 +11,8 @@ public interface BuiltDao {
 
     List<Built> getAll();
 
+    Built findById(int id);
+
     void deleteById(int id);
 
     void clearAll();

@@ -5,7 +5,8 @@ CREATE TABLE IF NOT EXISTS builts (
  built_name VARCHAR,
  built_description VARCHAR,
  built_location VARCHAR,
- phone VARCHAR,
- website VARCHAR,
- email VARCHAR
+ built_price VARCHAR,
+ type VARCHAR,
+ purpose VARCHAR
+ contact VARCHAR
 );
