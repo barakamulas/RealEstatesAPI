@@ -1,4 +1,5 @@
 package models;
+import java.math.*;
 
 import org.junit.After;
 import org.junit.Before;
@@ -26,5 +27,39 @@ public class SellingTest {
         assertTrue(setUpNewLand()instanceof Selling);
     }
 
+
+    @Test
+    public void getLand_name_SellingInstantiatesWithLandName_true() {
+        assertEquals("Makulos",setUpNewLand().getLand_name());
+    }
+
+    @Test
+    public void getLand_description_SellingInstantiatesWithLandDescription_true() {
+        assertEquals("desc",setUpNewLand().getLand_description());
+    }
+
+    @Test
+    public void getLand_type_SellingInstantiatesWithLandType_true() {
+        assertEquals("for lease",setUpNewLand().getLand_type());
+    }
+
+    @Test
+    public void getLand_price_SellingInstantiatesWithLandPrice_true() {
+        assertEquals(100000,setUpNewLand().getLand_price());
+    }
+
+    @Test
+    public void getPurpose_SellingInstantiatesWithLandPurpose_true() {
+        assertEquals("commercial",setUpNewLand().getPurpose());
+    }
+
+    @Test
+    public void getContact_SellingInstantiatesWithContact_true() {
+        assertEquals("+453261",setUpNewLand().getContact());
+    }
+    @Test
+    public void getLand_loaction_SellingInstantiatesWithLandLocation_true() {
+        assertEquals("+453261",setUpNewLand().getContact());
+    }
 
 }
