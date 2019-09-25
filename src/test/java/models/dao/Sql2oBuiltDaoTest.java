@@ -40,20 +40,18 @@ public class Sql2oBuiltDaoTest {
         assertEquals(1, builtDao.getAll().size());
     }
 
+    @Test
+    public void noBuiltsReturnsEmptyList() throws Exception {
+        assertEquals(0, builtDao.getAll().size());
+    }
 
+    @Test
+    public void findByIdReturnsCorrectBuilt() throws Exception {
+        Built testBuilt = setupBuilt();
+        Built otherBuilt = setupBuilt();
+        assertEquals(testBuilt, builtDao.findById(testBuilt.getId()));
+    }
 
-//    @Test
-//    public void noBuiltsReturnsEmptyList() throws Exception {
-//        assertEquals(0, builtDao.getAll().size());
-//    }
-//
-//    @Test
-//    public void findByIdReturnsCorrectBuilt() throws Exception {
-//        Built testBuilt = setupBuilt();
-//        Built otherBuilt = setupBuilt();
-//        assertEquals(testBuilt, builtDao.findById(testBuilt.getId()));
-//    }
-//
 //    @Test
 //    public void updateCorrectlyUpdatesAllFields() throws Exception {
 //        Built testBuilt = setupBuilt();

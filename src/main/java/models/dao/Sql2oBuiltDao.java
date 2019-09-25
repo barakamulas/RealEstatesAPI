@@ -32,6 +32,17 @@ public class Sql2oBuiltDao implements BuiltDao {
                     .executeAndFetch(Built.class);
         }
     }
-    
-    
+
+
+
+    @Override
+    public Built findById(int id) {
+        try(Connection con = sql2o.open()){
+            return con.createQuery("SELECT * FROM builts WHERE id = :id")
+                    .addParameter("id", id)
+                    .executeAndFetchFirst(Built.class);
+        }
+    }
+
+
 }
