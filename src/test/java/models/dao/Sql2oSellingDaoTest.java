@@ -44,4 +44,15 @@ public class Sql2oSellingDaoTest {
         assertEquals(2,sellingDao.all().size());
 
     }
+
+    @Test
+    public void findById_returnsLandById_true() {
+        Selling testLand = setUpNewLand();
+        Selling otherLand = setUpNewLand();
+        assertEquals(otherLand,sellingDao.findById(otherLand.getId()));
+    }
+
+//    @Test
+//    public void name() {
+//    }
 }
