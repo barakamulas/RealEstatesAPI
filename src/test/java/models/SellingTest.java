@@ -16,12 +16,13 @@ public class SellingTest {
     @After
     public void tearDown() throws Exception {
     }
-
+    //set up a new land instance
     public Selling setUpNewLand(){
         Selling selling  = new Selling("Makulos","desc","for lease",100000,"commercial","+453261","Makueni",2);
         return selling;
     }
 
+    //tests for getter methods
     @Test
     public void Selling_instantiatesCorrectly() {
         assertTrue(setUpNewLand()instanceof Selling);
@@ -40,7 +41,7 @@ public class SellingTest {
 
     @Test
     public void getLand_type_SellingInstantiatesWithLandType_true() {
-        assertEquals("for lease",setUpNewLand().getLand_type());
+        assertEquals("for lease",setUpNewLand().getSelling_type());
     }
 
     @Test
@@ -67,6 +68,7 @@ public class SellingTest {
         assertEquals(2,setUpNewLand().getSize());
     }
 
+    //test for equals override
     @Test
     public void equals_returnsTrueIfTwoEntriesAreSame_true() {
         Selling firstLand = setUpNewLand();
