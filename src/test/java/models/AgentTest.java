@@ -19,6 +19,10 @@ public class AgentTest {
         Agent agent = new Agent("Maria Kamau","+254 723 456 789","She is great");
         return agent;
     }
+    public Agent setUpAnotherAgent(){
+        Agent agent = new Agent("Fiane Makanja","+255 758 993 875","Amazing customer experience");
+        return agent;
+    }
     @Test
     public void addAgent_seeAgent() throws Exception{
         Agent agent = setUpNewAgent();
@@ -53,6 +57,12 @@ public class AgentTest {
     public void addAgent_getsTheCorrectReview() throws Exception{
         Agent agent = setUpNewAgent();
         assertNotEquals("Bad fruit in the making",agent.getAgent_reviews());
+    }
+    @Test
+    public void addAgent_getsCorrectAgent()throws Exception{
+        Agent agent = setUpNewAgent();
+        Agent anotherAgent = setUpNewAgent();
+        assertTrue(agent.equals(anotherAgent));
     }
 
 }

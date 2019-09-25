@@ -1,5 +1,7 @@
 package models;
 
+import java.util.Objects;
+
 public class Agent {
     private String agent_name;
     private String contact;
@@ -43,5 +45,21 @@ public class Agent {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Agent agent = (Agent) o;
+        return getId() == agent.getId() &&
+                Objects.equals(getAgent_name(), agent.getAgent_name()) &&
+                Objects.equals(getContact(), agent.getContact()) &&
+                Objects.equals(getAgent_reviews(), agent.getAgent_reviews());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getAgent_name(), getContact(), getAgent_reviews(), getId());
     }
 }
