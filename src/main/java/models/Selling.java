@@ -1,5 +1,7 @@
 package models;
 
+import java.util.Objects;
+
 public class Selling {
     private String land_name;
     private String land_description;
@@ -57,5 +59,62 @@ public class Selling {
 
     public int getId() {
         return id;
+    }
+
+    public void setLand_name(String land_name) {
+        this.land_name = land_name;
+    }
+
+    public void setLand_description(String land_description) {
+        this.land_description = land_description;
+    }
+
+    public void setLand_type(String land_type) {
+        this.land_type = land_type;
+    }
+
+    public void setLand_price(int land_price) {
+        this.land_price = land_price;
+    }
+
+    public void setPurpose(String purpose) {
+        this.purpose = purpose;
+    }
+
+    public void setContact(String contact) {
+        this.contact = contact;
+    }
+
+    public void setLand_location(String land_location) {
+        this.land_location = land_location;
+    }
+
+    public void setSize(int size) {
+        this.size = size;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Selling selling = (Selling) o;
+        return land_price == selling.land_price &&
+                size == selling.size &&
+                id == selling.id &&
+                Objects.equals(land_name, selling.land_name) &&
+                Objects.equals(land_description, selling.land_description) &&
+                Objects.equals(land_type, selling.land_type) &&
+                Objects.equals(purpose, selling.purpose) &&
+                Objects.equals(contact, selling.contact) &&
+                Objects.equals(land_location, selling.land_location);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(land_name, land_description, land_type, land_price, purpose, contact, land_location, size, id);
     }
 }
