@@ -15,10 +15,13 @@ public class AgentTest {
     @After
     public void tearDown() throws Exception {
     }
-
+    public Agent setUpNewAgent(){
+        Agent agent = new Agent("Maria Kamau","+254 723 456 789","She is great");
+        return agent;
+    }
     @Test
     public void addAgent_seeAgent() throws Exception{
-        Agent agent = new Agent("Maria Kamau","+254 723 456 789","She is great");
+        Agent agent = setUpNewAgent();
         assertTrue(agent instanceof Agent);
     }
 }
