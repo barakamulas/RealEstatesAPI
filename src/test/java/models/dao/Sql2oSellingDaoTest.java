@@ -38,7 +38,7 @@ public class Sql2oSellingDaoTest {
     }
 
     @Test
-    public void all_returnsAllLandEntries()throws Exception {
+    public void all_returnsAllLandEntries_true()throws Exception {
         Selling firstLand = setUpNewLand();
         Selling secondLand = setUpNewLand();
         assertEquals(2,sellingDao.all().size());
@@ -52,7 +52,30 @@ public class Sql2oSellingDaoTest {
         assertEquals(otherLand,sellingDao.findById(otherLand.getId()));
     }
 
-//    @Test
-//    public void name() {
-//    }
+    @Test
+    public void update_correctlyUpdatesAllFields_true() {
+        Selling testLand = setUpNewLand();
+        sellingDao.update(testLand.getId(),"Nakulos","description","for lease",110000,"commercial","+4532614","Nakuru",4);
+        Selling foundLand = sellingDao.findById(testLand.getId());
+        assertNotEquals(testLand,foundLand);
+      assertEquals("description",foundLand.getLand_description());
+      assertEquals("for lease",foundLand.getSelling_type());
+
+    }
+
+    @Test
+    public void deleteById_deletesCorrectLand() throws Exception {
+        Selling testSelling = setUpNewLand();
+        Selling otherSelling = setUpNewLand();
+        sellingDao.deleteById(otherSelling.getId());
+        assertEquals(1,sellingDao.all().size());
+    }
+
+    @Test
+    public void clearAll_clearsAllData() {
+        Selling testSelling = setUpNewLand();
+        Selling otherSelling = setUpNewLand();
+        sellingDao.clearAll();
+        assertEquals(0, sellingDao.all().size());
+    }
 }
