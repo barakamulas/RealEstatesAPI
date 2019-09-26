@@ -58,17 +58,17 @@ public class Sql2oAgentBuiltDao implements AgentBuiltDao {
         }
     }
 
-//    @Override
-//    public void clearAll() {
-//        String sql = "DELETE from builts";
-//        try (Connection con = sql2o.open()) {
-//            con.createQuery(sql)
-//                    .executeUpdate();
-//        } catch (Sql2oException ex){
-//            System.out.println(ex);
-//        }
-//    }
-//
+    @Override
+    public void clearAll() {
+        String sql = "DELETE from agentbuilts";
+        try (Connection con = sql2o.open()) {
+            con.createQuery(sql)
+                    .executeUpdate();
+        } catch (Sql2oException ex){
+            System.out.println(ex);
+        }
+    }
+
 //    @Override
 //    public void update(int id, String built_name, String built_description, String built_location, int built_price, String type, String purpose, String contact) {
 //        String sql = "UPDATE builts SET built_name = :built_name,  built_description= :built_description, built_location = :built_location, built_price = :built_price, type = :type, purpose = :purpose, contact = :contact WHERE id=:id";

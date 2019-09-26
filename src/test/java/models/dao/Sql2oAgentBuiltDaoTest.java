@@ -62,15 +62,16 @@ public class Sql2oAgentBuiltDaoTest {
         assertEquals(1, agentBuiltDao.getAll().size());
     }
 
-//    @Test
-//    public void clearAll() throws Exception {
-//        AgentBuilt testAgentBuilt = setupAgentBuilt();
-//        AgentBuilt otherAgentBuilt = setupAgentBuilt();
-//        agentBuiltDao.clearAll();
-//        assertEquals(0, agentBuiltDao.getAll().size());
-//    }
-//
-//
+    @Test
+    public void clearAll() throws Exception {
+        AgentBuilt testAgentBuilt = setupAgentBuilt();
+        AgentBuilt otherAgentBuilt = setupAgentBuilt();
+        AgentBuilt thirdAgentBuilt = setupThirdAgentBuilt();
+        agentBuiltDao.clearAll();
+        assertEquals(0, agentBuiltDao.getAll().size());
+    }
+
+
 //    @Test
 //    public void updateCorrectlyUpdatesAllFields() throws Exception {
 //        AgentBuilt testAgentBuilt = setupAgentBuilt();
