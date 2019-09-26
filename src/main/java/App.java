@@ -26,26 +26,48 @@ public class App {
         agentDao = new Sql2oAgentDao(sql2o);
         conn = sql2o.open();
 
-          get("/built","application/json",(request, response) -> {
+          get("/api/built","application/json",(request, response) -> {
             return gson.toJson(builtDao.getAll());
           });
-          get("/selling","application/json",(request, response) -> {
+          get("/api/selling","application/json",(request, response) -> {
               return gson.toJson(sellingDao.all());
           });
-          get("/agents","application/json",(request, response) -> {
+          get("/api/agents","application/json",(request, response) -> {
               return gson.toJson(agentDao.getAgents());
           });
-          get("/agents/:id","application/json",(request, response) -> {
+          get("/api/agents/:id","application/json",(request, response) -> {
             int agentId = Integer.parseInt(request.params("id"));
             return gson.toJson(agentDao.findById(agentId));
           });
-          get("/selling/:id","application/json",(request, response) -> {
+          get("/api/selling/:id","application/json",(request, response) -> {
             int sellingId = Integer.parseInt(request.params("id"));
             return gson.toJson(sellingDao.findById(sellingId));
           });
-          get("/built/:id","application/json",(request, response) -> {
+          get("api/built/:id","application/json",(request, response) -> {
             int builtId = Integer.parseInt(request.params("id"));
             return gson.toJson(builtDao.findById(builtId));
+          });
+          post("/api/built/new","application/json",(request, response) -> {
+            Built built = gson.fromJson(request.body(),Built.class);
+            builtDao.add(built);
+            response.status(201);
+            return gson.toJson(built);
+          });
+          post("/api/selling/new","application/json",(request, response) -> {
+          Selling selling = gson.fromJson(request.body(),Selling.class);
+          sellingDao.add(selling);
+          response.status(201);
+          return gson.toJson(selling);
+          });
+          post("/api/agents/new","application/json",(request, response) -> {
+          Agent agent = gson.fromJson(request.body(),Agent.class);
+          agentDao.add(agent);
+          response.status(201);
+          return gson.toJson(agent);
+          });
+
+          after((req, res) -> {
+            res.type("application/json");
           });
     }
 }
