@@ -11,8 +11,8 @@ public interface AgentBuiltDao {
     void add(AgentBuilt agentbuilt);
 
     List<AgentBuilt> getAll();
-//
-//    Built findById(int id);
+
+    Built findById(int id);
 //
 //    void deleteById(int id);
 //

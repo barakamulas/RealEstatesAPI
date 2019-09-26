@@ -35,17 +35,17 @@ public class Sql2oAgentBuiltDao implements AgentBuiltDao {
         }
     }
 
-//
-//
-//    @Override
-//    public Built findById(int id) {
-//        try(Connection con = sql2o.open()){
-//            return con.createQuery("SELECT * FROM builts WHERE id = :id")
-//                    .addParameter("id", id)
-//                    .executeAndFetchFirst(Built.class);
-//        }
-//    }
-//
+
+
+    @Override
+    public AgentBuilt findById(int id) {
+        try(Connection con = sql2o.open()){
+            return con.createQuery("SELECT * FROM agentbuilts WHERE id = :id")
+                    .addParameter("id", id)
+                    .executeAndFetchFirst(AgentBuilt.class);
+        }
+    }
+
 //    @Override
 //    public void deleteById(int id) {
 //        String sql = "DELETE from builts WHERE id=:id";

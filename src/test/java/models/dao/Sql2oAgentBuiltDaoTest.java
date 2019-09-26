@@ -41,19 +41,19 @@ public class Sql2oAgentBuiltDaoTest {
         assertEquals(1, agentBuiltDao.getAll().size());
     }
 
-//    @Test
-//    public void noBuiltsReturnsEmptyList() throws Exception {
-//        assertEquals(0, agentBuiltDao.getAll().size());
-//    }
-//
-//    @Test
-//    public void findByIdReturnsCorrectBuilt() throws Exception {
-//        AgentBuilt testAgentBuilt = setupAgentBuilt();
-//        AgentBuilt otherAgentBuilt = setupAgentBuilt();
-//        assertEquals(testAgentBuilt , agentBuiltDao.findById(testAgentBuilt .getId()));
-//    }
-//
-//
+    @Test
+    public void noAgentBuiltsReturnsEmptyList() throws Exception {
+        assertEquals(0, agentBuiltDao.getAll().size());
+    }
+
+    @Test
+    public void findByIdReturnsCorrectAgentBuilt() throws Exception {
+        AgentBuilt testAgentBuilt = setupAgentBuilt();
+        AgentBuilt otherAgentBuilt = setupAgentBuilt();
+        assertEquals(testAgentBuilt , agentBuiltDao.findById(testAgentBuilt .getId()));
+    }
+
+
 //    @Test
 //    public void deleteByIdDeletesCorrectBuilt() throws Exception {
 //        AgentBuilt testAgentBuilt = setupAgentBuilt();
