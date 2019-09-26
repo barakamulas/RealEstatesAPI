@@ -3,14 +3,14 @@ package models;
 import java.util.Objects;
 
 public class Built {
-   private int id;
-    private String built_name;
-    private String built_description;
-    private String built_location;
-    private int built_price;
-    private String type;
-    private String purpose;
-    private String contact;
+    protected int id;
+    protected String built_name;
+    protected String built_description;
+    protected String built_location;
+    protected int built_price;
+    protected String type;
+    protected String purpose;
+    protected String contact;
 
     public Built(String built_name, String built_description, String built_location, int built_price, String type, String purpose, String contact) {
         this.built_name = built_name;
