@@ -1,5 +1,6 @@
 package models.dao;
 
+import models.Agent;
 import models.AgentBuilt;
 import models.Built;
 import org.junit.After;
@@ -13,14 +14,16 @@ import static org.junit.Assert.*;
 public class Sql2oAgentBuiltDaoTest {
 
     private Connection conn;
-    private models.dao.Sql2oAgentBuiltDao agentBuiltDao;
+    private Sql2oAgentBuiltDao agentBuiltDao;
+    private Sql2oAgentDao agentDao;
 
 
     @Before
     public void setUp() throws Exception {
         String connectionString = "jdbc:h2:mem:testing;INIT=RUNSCRIPT from 'classpath:db/create.sql'";
         Sql2o sql2o = new Sql2o(connectionString, "", "");
-        agentBuiltDao = new models.dao.Sql2oAgentBuiltDao(sql2o);
+        agentBuiltDao = new Sql2oAgentBuiltDao(sql2o);
+        agentDao = new Sql2oAgentDao(sql2o);
         conn = sql2o.open();
     }
 
@@ -84,6 +87,15 @@ public class Sql2oAgentBuiltDaoTest {
         assertEquals("Commercial", foundAgentBuilt .getPurpose());
         assertEquals("+254744444444", foundAgentBuilt .getContact());
         assertEquals(2, foundAgentBuilt.getAgent_id());
+    }
+
+    @Test
+    public void getAgentForBuiltReturnsCorrectAgent() throws Exception {
+        Agent testAgent = new Agent("John","+254712345678","good");
+        agentDao.add(testAgent);
+        AgentBuilt testAgentBuilt = new AgentBuilt("Kasuku Centre Lounge", "Single floor Bar and Lounge", "Kileleshwa", 20000000, "For Sale", "Commercial","+254722222221",testAgent.getId());
+        agentBuiltDao.add(testAgentBuilt);
+        assertEquals(agentBuiltDao.getAgentForBuilt(testAgentBuilt),testAgent);
     }
 
 

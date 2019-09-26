@@ -1,5 +1,6 @@
 package models.dao;
 
+import models.Agent;
 import models.AgentBuilt;
 import models.Built;
 import org.sql2o.Connection;
@@ -85,6 +86,15 @@ public class Sql2oAgentBuiltDao implements AgentBuiltDao {
                     .executeUpdate();
         } catch (Sql2oException ex) {
             System.out.println(ex);
+        }
+    }
+
+    @Override
+    public Agent getAgentForBuilt(AgentBuilt agentBuilt) {
+        try(Connection con = sql2o.open()){
+            return con.createQuery("SELECT * FROM agents WHERE id = :agent_id")
+                    .addParameter("agent_id", agentBuilt.getAgent_id())
+                    .executeAndFetchFirst(Agent.class);
         }
     }
 
