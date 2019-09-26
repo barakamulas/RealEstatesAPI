@@ -8,9 +8,16 @@ import org.sql2o.Connection;
 import org.sql2o.Sql2o;
 import static spark.Spark.*;
 import com.google.gson.Gson;
+import spark.ModelAndView;
+import spark.template.handlebars.HandlebarsTemplateEngine;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class App {
+
     public static void main(String[] args) {
+      staticFileLocation("/public");
       Sql2oBuiltDao builtDao;
       Sql2oSellingDao sellingDao;
       Sql2oAgentDao agentDao;
@@ -24,7 +31,15 @@ public class App {
         sellingDao = new Sql2oSellingDao(sql2o);
         agentDao = new Sql2oAgentDao(sql2o);
         conn = sql2o.open();
+        Map<String,Object> model = new HashMap<>();
+          get("/",(req,res)->{
+            return new ModelAndView(model,"index.hbs");
+          },new HandlebarsTemplateEngine());
 
+          get("/form",(request, response) -> {
+              return new ModelAndView(model,"agentform.hbs");
+          },new HandlebarsTemplateEngine());
+        
           get("/api/built","application/json",(request, response) -> {
               response.type("application/json");
               return gson.toJson(builtDao.getAll());
@@ -74,4 +89,5 @@ public class App {
               return gson.toJson(agent);
           });
     }
+
 }
