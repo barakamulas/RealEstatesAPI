@@ -15,6 +15,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class App {
+
     public static void main(String[] args) {
       staticFileLocation("/public");
       Sql2oBuiltDao builtDao;
@@ -35,9 +36,14 @@ public class App {
         conn = sql2o.open();
 
       
+        Map<String,Object> model = new HashMap<>();
+
           get("/",(req,res)->{
-            Map<String,Object> model = new HashMap<>();
             return new ModelAndView(model,"index.hbs");
+          },new HandlebarsTemplateEngine());
+
+          get("/form",(request, response) -> {
+              return new ModelAndView(model,"agentform.hbs");
           },new HandlebarsTemplateEngine());
         
 
@@ -90,4 +96,5 @@ public class App {
               return gson.toJson(agent);
           });
     }
+
 }
