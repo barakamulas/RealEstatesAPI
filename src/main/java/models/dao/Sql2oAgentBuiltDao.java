@@ -46,18 +46,18 @@ public class Sql2oAgentBuiltDao implements AgentBuiltDao {
         }
     }
 
-//    @Override
-//    public void deleteById(int id) {
-//        String sql = "DELETE from builts WHERE id=:id";
-//        try (Connection con = sql2o.open()) {
-//            con.createQuery(sql)
-//                    .addParameter("id", id)
-//                    .executeUpdate();
-//        } catch (Sql2oException ex){
-//            System.out.println(ex);
-//        }
-//    }
-//
+    @Override
+    public void deleteById(int id) {
+        String sql = "DELETE from agentbuilts WHERE id=:id";
+        try (Connection con = sql2o.open()) {
+            con.createQuery(sql)
+                    .addParameter("id", id)
+                    .executeUpdate();
+        } catch (Sql2oException ex){
+            System.out.println(ex);
+        }
+    }
+
 //    @Override
 //    public void clearAll() {
 //        String sql = "DELETE from builts";

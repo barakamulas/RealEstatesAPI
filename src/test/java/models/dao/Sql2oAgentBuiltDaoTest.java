@@ -54,14 +54,14 @@ public class Sql2oAgentBuiltDaoTest {
     }
 
 
-//    @Test
-//    public void deleteByIdDeletesCorrectBuilt() throws Exception {
-//        AgentBuilt testAgentBuilt = setupAgentBuilt();
-//        AgentBuilt otherAgentBuilt = setupAltBuilt();
-//        agentBuiltDao.deleteById(testAgentBuilt .getId());
-//        assertEquals(1, agentBuiltDao.getAll().size());
-//    }
-//
+    @Test
+    public void deleteByIdDeletesCorrectAgentBuilt() throws Exception {
+        AgentBuilt testAgentBuilt = setupAgentBuilt();
+        AgentBuilt otherAgentBuilt = setupAltAgentBuilt();
+        agentBuiltDao.deleteById(testAgentBuilt .getId());
+        assertEquals(1, agentBuiltDao.getAll().size());
+    }
+
 //    @Test
 //    public void clearAll() throws Exception {
 //        AgentBuilt testAgentBuilt = setupAgentBuilt();

@@ -13,8 +13,8 @@ public interface AgentBuiltDao {
     List<AgentBuilt> getAll();
 
     Built findById(int id);
-//
-//    void deleteById(int id);
+
+    void deleteById(int id);
 //
 //    void clearAll();
 //
