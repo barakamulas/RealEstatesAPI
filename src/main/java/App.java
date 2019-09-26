@@ -4,7 +4,6 @@ import models.dao.Sql2oSellingDao;
 import models.Selling;
 import models.Agent;
 import models.Built;
-import models.*;
 import org.sql2o.Connection;
 import org.sql2o.Sql2o;
 import static spark.Spark.*;
@@ -74,6 +73,5 @@ public class App {
               response.type("application/json");
               return gson.toJson(agent);
           });
-
     }
 }
