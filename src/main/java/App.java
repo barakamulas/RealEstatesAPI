@@ -21,10 +21,10 @@ public class App {
       String connectionString = "jdbc:h2:~/realestatesapi.db;INIT=RUNSCRIPT from 'classpath:db/create.sql'";
       Sql2o sql2o = new Sql2o(connectionString,"","");
 
-        builtDao = new Sql2oBuiltDao(sql2o);
-        sellingDao = new Sql2oSellingDao(sql2o);
-        agentDao = new Sql2oAgentDao(sql2o);
-        conn = sql2o.open();
+      builtDao = new Sql2oBuiltDao(sql2o);
+      sellingDao = new Sql2oSellingDao(sql2o);
+      agentDao = new Sql2oAgentDao(sql2o);
+      conn = sql2o.open();
 
           get("/api/built","application/json",(request, response) -> {
               response.type("application/json");
