@@ -35,14 +35,17 @@ public class App {
           get("/agents","application/json",(request, response) -> {
               return gson.toJson(agentDao.getAgents());
           });
-          get("","",(request, response) -> {
-
+          get("/agents/:id","application/json",(request, response) -> {
+            int agentId = Integer.parseInt(request.params("id"));
+            return gson.toJson(agentDao.findById(agentId));
           });
-          get("","",(request, response) -> {
-
+          get("/selling/:id","application/json",(request, response) -> {
+            int sellingId = Integer.parseInt(request.params("id"));
+            return gson.toJson(sellingDao.findById(sellingId));
           });
-          get("","",(request, response) -> {
-
+          get("/built/:id","application/json",(request, response) -> {
+            int builtId = Integer.parseInt(request.params("id"));
+            return gson.toJson(builtDao.findById(builtId));
           });
     }
 }
