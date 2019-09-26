@@ -56,7 +56,6 @@ public class Sql2oAgentBuiltDaoTest {
         assertEquals(testAgentBuilt , agentBuiltDao.findById(testAgentBuilt .getId()));
     }
 
-
     @Test
     public void deleteByIdDeletesCorrectAgentBuilt() throws Exception {
         AgentBuilt testAgentBuilt = setupAgentBuilt();
@@ -73,7 +72,6 @@ public class Sql2oAgentBuiltDaoTest {
         agentBuiltDao.clearAll();
         assertEquals(0, agentBuiltDao.getAll().size());
     }
-
 
     @Test
     public void updateCorrectlyUpdatesAllFields() throws Exception {
@@ -115,10 +113,5 @@ public class Sql2oAgentBuiltDaoTest {
         AgentBuilt thirdAgentBuilt = new AgentBuilt("Kasuku Centre Lounge", "Single floor Bar and Lounge", "Kileleshwa", 20000000, "For Sale", "Commercial","+254722222221",1);
         agentBuiltDao.add(thirdAgentBuilt);
         return thirdAgentBuilt;
-
     }
-
-
-
-
 }
