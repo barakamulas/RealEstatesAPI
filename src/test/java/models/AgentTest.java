@@ -70,5 +70,4 @@ public class AgentTest {
         Agent anotherAgent = setUpAnotherAgent();
         assertFalse(agent.equals(anotherAgent));
     }
-
 }
