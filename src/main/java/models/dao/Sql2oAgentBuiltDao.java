@@ -36,7 +36,6 @@ public class Sql2oAgentBuiltDao implements AgentBuiltDao {
     }
 
 
-
     @Override
     public AgentBuilt findById(int id) {
         try(Connection con = sql2o.open()){
@@ -88,4 +87,6 @@ public class Sql2oAgentBuiltDao implements AgentBuiltDao {
             System.out.println(ex);
         }
     }
+
+
 }

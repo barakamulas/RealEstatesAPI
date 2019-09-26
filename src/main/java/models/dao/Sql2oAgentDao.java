@@ -1,6 +1,7 @@
 package models.dao;
 
 import models.Agent;
+import models.AgentBuilt;
 import models.dao.AgentDao;
 import org.sql2o.Connection;
 import org.sql2o.Sql2o;
@@ -81,7 +82,14 @@ public class Sql2oAgentDao implements AgentDao {
         } catch (Sql2oException ex) {
             System.out.println(ex);
         }
+    }
 
-
+    @Override
+    public List<AgentBuilt> getAllBuiltsForAgent(int id) {
+        try(Connection con = sql2o.open()){
+            return con.createQuery("SELECT * FROM agentbuilts WHERE agent_id = :agent_id")
+                    .addParameter("agent_id", id)
+                    .executeAndFetch(AgentBuilt.class);
+        }
     }
 }
