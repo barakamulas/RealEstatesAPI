@@ -48,7 +48,7 @@ public class App {
               response.type("application/json");
               return gson.toJson(sellingDao.findById(sellingId));
           });
-          get("api/built/:id","application/json",(request, response) -> {
+          get("/api/built/:id","application/json",(request, response) -> {
               int builtId = Integer.parseInt(request.params("id"));
               response.type("application/json");
               return gson.toJson(builtDao.findById(builtId));
