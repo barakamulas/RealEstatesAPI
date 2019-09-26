@@ -72,18 +72,19 @@ public class Sql2oAgentBuiltDaoTest {
     }
 
 
-//    @Test
-//    public void updateCorrectlyUpdatesAllFields() throws Exception {
-//        AgentBuilt testAgentBuilt = setupAgentBuilt();
-//        agentBuiltDao.update(testAgentBuilt .getId(), "a", "b", "c", 1000000, "For Sale", "Commercial", "+254744444444");
-//        AgentBuilt foundAgentBuilt = agentBuiltDao.findById(testAgentBuilt .getId());
-//        assertEquals("a", foundAgentBuilt .getBuilt_name());
-//        assertEquals("b", foundAgentBuilt .getBuilt_description());
-//        assertEquals("c", foundAgentBuilt .getBuilt_location());
-//        assertEquals("For Sale", foundAgentBuilt .getType());
-//        assertEquals("Commercial", foundAgentBuilt .getPurpose());
-//        assertEquals("+254744444444", foundAgentBuilt .getContact());
-//    }
+    @Test
+    public void updateCorrectlyUpdatesAllFields() throws Exception {
+        AgentBuilt testAgentBuilt = setupAgentBuilt();
+        agentBuiltDao.update(testAgentBuilt.getId(), "a", "b", "c", 1000000, "For Sale", "Commercial", "+254744444444", 2);
+        AgentBuilt foundAgentBuilt = agentBuiltDao.findById(testAgentBuilt .getId());
+        assertEquals("a", foundAgentBuilt .getBuilt_name());
+        assertEquals("b", foundAgentBuilt .getBuilt_description());
+        assertEquals("c", foundAgentBuilt .getBuilt_location());
+        assertEquals("For Sale", foundAgentBuilt .getType());
+        assertEquals("Commercial", foundAgentBuilt .getPurpose());
+        assertEquals("+254744444444", foundAgentBuilt .getContact());
+        assertEquals(2, foundAgentBuilt.getAgent_id());
+    }
 
 
     public AgentBuilt setupAgentBuilt (){

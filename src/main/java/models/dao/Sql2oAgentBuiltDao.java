@@ -69,22 +69,23 @@ public class Sql2oAgentBuiltDao implements AgentBuiltDao {
         }
     }
 
-//    @Override
-//    public void update(int id, String built_name, String built_description, String built_location, int built_price, String type, String purpose, String contact) {
-//        String sql = "UPDATE builts SET built_name = :built_name,  built_description= :built_description, built_location = :built_location, built_price = :built_price, type = :type, purpose = :purpose, contact = :contact WHERE id=:id";
-//        try(Connection con = sql2o.open()){
-//            con.createQuery(sql)
-//                    .addParameter("id", id)
-//                    .addParameter("built_name",built_name)
-//                    .addParameter("built_description", built_description)
-//                    .addParameter("built_location", built_location)
-//                    .addParameter("built_price", built_price)
-//                    .addParameter("type", type)
-//                    .addParameter("purpose", purpose)
-//                    .addParameter("contact", contact)
-//                    .executeUpdate();
-//        } catch (Sql2oException ex) {
-//            System.out.println(ex);
-//        }
-//    }
+    @Override
+    public void update(int id, String built_name, String built_description, String built_location, int built_price, String type, String purpose, String contact, int agent_id) {
+        String sql = "UPDATE agentbuilts SET built_name = :built_name,  built_description= :built_description, built_location = :built_location, built_price = :built_price, type = :type, purpose = :purpose, contact = :contact, agent_id = :agent_id WHERE id=:id";
+        try(Connection con = sql2o.open()){
+            con.createQuery(sql)
+                    .addParameter("id", id)
+                    .addParameter("built_name",built_name)
+                    .addParameter("built_description", built_description)
+                    .addParameter("built_location", built_location)
+                    .addParameter("built_price", built_price)
+                    .addParameter("type", type)
+                    .addParameter("purpose", purpose)
+                    .addParameter("contact", contact)
+                    .addParameter("agent_id", agent_id)
+                    .executeUpdate();
+        } catch (Sql2oException ex) {
+            System.out.println(ex);
+        }
+    }
 }
