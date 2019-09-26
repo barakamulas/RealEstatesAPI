@@ -24,6 +24,25 @@ public class App {
         builtDao = new Sql2oBuiltDao(sql2o);
         sellingDao = new Sql2oSellingDao(sql2o);
         agentDao = new Sql2oAgentDao(sql2o);
+        conn = sql2o.open();
 
+          get("/built","application/json",(request, response) -> {
+            return gson.toJson(builtDao.getAll());
+          });
+          get("/selling","application/json",(request, response) -> {
+              return gson.toJson(sellingDao.all());
+          });
+          get("/agents","application/json",(request, response) -> {
+              return gson.toJson(agentDao.getAgents());
+          });
+          get("","",(request, response) -> {
+
+          });
+          get("","",(request, response) -> {
+
+          });
+          get("","",(request, response) -> {
+
+          });
     }
 }
