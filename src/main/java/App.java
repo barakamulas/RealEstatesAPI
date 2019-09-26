@@ -10,9 +10,7 @@ import static spark.Spark.*;
 import com.google.gson.Gson;
 
 public class App {
-<<<<<<< HEAD
 
-=======
     public static void main(String[] args) {
       Sql2oBuiltDao builtDao;
       Sql2oSellingDao sellingDao;
@@ -77,5 +75,5 @@ public class App {
               return gson.toJson(agent);
           });
     }
->>>>>>> 249d341ad0ba89561c6f89372cbbd6843f055774
+
 }
