@@ -31,11 +31,13 @@ public class App {
         sellingDao = new Sql2oSellingDao(sql2o);
         agentDao = new Sql2oAgentDao(sql2o);
         conn = sql2o.open();
-      
-      
+        Map<String,Object> model = new HashMap<>();
           get("/",(req,res)->{
-            Map<String,Object> model = new HashMap<>();
             return new ModelAndView(model,"index.hbs");
+          },new HandlebarsTemplateEngine());
+
+          get("/form",(request, response) -> {
+              return new ModelAndView(model,"sellingform.hbs");
           },new HandlebarsTemplateEngine());
         
           get("/api/built","application/json",(request, response) -> {
