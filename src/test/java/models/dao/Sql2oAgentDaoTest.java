@@ -1,5 +1,6 @@
-package dao;
+package models.dao;
 
+import dao.Sql2oAgentDao;
 import models.Agent;
 import org.junit.After;
 import org.junit.Before;
