@@ -1,5 +1,6 @@
 package models.dao;
 
+import models.AgentBuilt;
 import models.Built;
 
 import java.util.List;
@@ -7,9 +8,9 @@ import java.util.List;
 public interface AgentBuiltDao {
 
 
-//    void add(Built built);
+    void add(AgentBuilt agentbuilt);
 
-//    List<Built> getAll();
+    List<AgentBuilt> getAll();
 //
 //    Built findById(int id);
 //
