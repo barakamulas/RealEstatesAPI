@@ -1,4 +1,5 @@
 import models.*;
+import models.dao.Sql2oAgentBuiltDao;
 import models.dao.Sql2oAgentDao;
 import models.dao.Sql2oBuiltDao;
 import models.dao.Sql2oSellingDao;
@@ -19,11 +20,17 @@ public class App {
       Sql2oBuiltDao builtDao;
       Sql2oSellingDao sellingDao;
       Sql2oAgentDao agentDao;
+      Sql2oAgentBuiltDao agentBuiltDao;
       Connection conn;
       Gson gson = new Gson();
 
       String connectionString = "jdbc:h2:~/realestatesapi.db;INIT=RUNSCRIPT from 'classpath:db/create.sql'";
       Sql2o sql2o = new Sql2o(connectionString,"","");
+
+
+
+
+        agentBuiltDao = new Sql2oAgentBuiltDao(sql2o);
 
         builtDao = new Sql2oBuiltDao(sql2o);
         sellingDao = new Sql2oSellingDao(sql2o);
@@ -36,7 +43,7 @@ public class App {
                 },new HandlebarsTemplateEngine());
 
 
-         get("/apis",(request, response) -> {
+        get("/apis",(request, response) -> {   
             return new ModelAndView(model,"api.hbs");
                 },new HandlebarsTemplateEngine());
 
@@ -58,8 +65,28 @@ public class App {
               model.put("Residential", Constant.RESIDENTIAL);
               model.put("Industrial", Constant.INDUSTRIAL);
               model.put("Special", Constant.SPECIAL);
-          return new ModelAndView(model,"built-form.hbs");
-                },new HandlebarsTemplateEngine());
+              return new ModelAndView(model,"agentbuilt-form.hbs");
+          },new HandlebarsTemplateEngine());
+
+        post("/agentbuilts/new",(request, response) -> {
+            String built_name = request.queryParams("name");
+            String built_description = request.queryParams("description");
+            String built_location = request.queryParams("location");
+            int built_price = Integer.parseInt(request.queryParams("price"));
+            String type = request.queryParams("type");
+            String purpose = request.queryParams("purpose");
+            String contact = request.queryParams("contact");
+            String agent_name = request.queryParams("agent_name");
+            String agent_contact = request.queryParams("agent_contact");
+            Agent newAgent = new Agent(agent_name,agent_contact,"Good");
+            agentDao.add(newAgent);
+            AgentBuilt newAgentBuilt = new AgentBuilt(built_name,built_description,built_location,built_price,type,purpose,contact,newAgent.getId());
+            agentBuiltDao.add(newAgentBuilt);
+            response.redirect("/");
+            return null;
+        },new HandlebarsTemplateEngine());
+
+
 
           get("/agentform",(request, response) -> {
               return new ModelAndView(model,"agentform.hbs");

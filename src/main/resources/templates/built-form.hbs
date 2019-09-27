@@ -1,6 +1,6 @@
 {{#partial "content"}}
 
-   {{#if built}}
+
 
        <div class="container-contact100">
            <div class="contact100-map" id="google_map" data-map-x="40.722047" data-map-y="-73.986422" data-pin="images/icons/map-marker.png" data-scrollwhell="0" data-draggable="1"></div>
@@ -10,9 +10,8 @@
 				<span class="contact100-form-title-1">
 					Add a Building
 				</span>
-               </div>
 
-               <form class="contact100-form validate-form" href="/agentbuilts/new" method="POST">
+               <form class="contact100-form validate-form" action="/builts/new" method="POST">
                    <div class="wrap-input100 validate-input" data-validate="Name is required">
                        <span class="label-input100" for="name">Name of Building:</span>
                        <input class="input100" type="text" id="name" name="name" placeholder="Enter full name">
@@ -79,9 +78,10 @@
 				<span class="contact100-form-title-1">
 					Add A Building With An Agent
 				</span>
+
                </div>
 
-               <form class="contact100-form validate-form" href="/builts/new" method="POST">
+               <form class="contact100-form validate-form" action="/agentbuilts/new" method="POST">
                    <div class="wrap-input100 validate-input" data-validate="Name is required">
                        <span class="label-input100" for="name">Name of Building:</span>
                        <input class="input100" type="text" id="name" name="name" placeholder="Enter full name">
@@ -126,16 +126,6 @@
                        <input class="input100" type="text" id="contact" name="contact" placeholder="Enter phone number">
                        <span class="focus-input100"></span>
                    </div>
-                   <div class="wrap-input100 validate-input" data-validate="Phone is required">
-                       <span class="label-input100" for="agent_name">Agent Name:</span>
-                       <input class="input100" type="text" id="agent_name" name="agent_name" placeholder="Enter phone number">
-                       <span class="focus-input100"></span>
-                   </div>
-                   <div class="wrap-input100 validate-input" data-validate="Phone is required">
-                       <span class="label-input100" for="agent_contact">Agent Contact:</span>
-                       <input class="input100" type="text" id="agent_contact" name="agent_contact" placeholder="Enter phone number">
-                       <span class="focus-input100"></span>
-                   </div>
                    <div class="container-contact100-form-btn">
                        <button class="contact100-form-btn">
 						<span>
@@ -148,8 +138,6 @@
            </div>
        </div>
 
-
-   {{/if}}
 
 {{/partial}}
 
