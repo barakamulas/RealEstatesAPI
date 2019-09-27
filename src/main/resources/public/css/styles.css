@@ -5,6 +5,7 @@
     background-repeat: no-repeat;
     background-size:cover;
     background-position: center-center;
+    height:auto;
     font-style:italic;
     overflow-x: hidden;
     background:rgba(0,0,0.0.9);
