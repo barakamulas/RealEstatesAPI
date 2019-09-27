@@ -43,7 +43,7 @@ public class App {
              model.put("builts",builtDao.getAll());
              model.put("agents",agentDao.getAgents());
              model.put("agentbuilts",agentBuiltDao.getAll());
-            return new ModelAndView(model,"index.hbs");
+            return new ModelAndView(model,"agentform.hbs");
          },new HandlebarsTemplateEngine());
 
 
@@ -92,6 +92,19 @@ public class App {
             agentDao.add(newAgent);
             AgentBuilt newAgentBuilt = new AgentBuilt(built_name,built_description,built_location,built_price,type,purpose,contact,newAgent.getId());
             agentBuiltDao.add(newAgentBuilt);
+            model.put("sellings", sellingDao.all());
+            model.put("builts",builtDao.getAll());
+            model.put("agents",agentDao.getAgents());
+            model.put("agentbuilts",agentBuiltDao.getAll());
+            response.redirect("/");
+            return null;
+        },new HandlebarsTemplateEngine());
+
+        post("/agents/new",(request, response) -> {
+            String agent_name = request.queryParams("name");
+            String agent_contact = request.queryParams("phone");
+            Agent newAgent = new Agent(agent_name,agent_contact,"Good");
+            agentDao.add(newAgent);
             model.put("sellings", sellingDao.all());
             model.put("builts",builtDao.getAll());
             model.put("agents",agentDao.getAgents());
