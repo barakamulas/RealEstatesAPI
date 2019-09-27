@@ -12,58 +12,58 @@
 					Feel free to add a new property.
 				</span>
             </div>
-            <form class="contact100-form validate-form pt-5" method="POST">
+            <form class="contact100-form validate-form pt-5" action="/sellings/new" method="POST">
                 <div class="wrap-input100 validate-input" data-validate="Name is required">
                     <span class="label-input100">Property Name:</span>
-                    <input class="input100" type="text" name="name" placeholder="Enter land name">
+                    <input class="input100" type="text" id="landName" name="landName" placeholder="Enter land name">
                     <span class="focus-input100"></span>
                 </div>
                 <div class="wrap-input100 validate-input" data-validate="Description is required">
                     <span class="label-input100">Property description:</span>
-                    <input class="input100" type="text" name="name" placeholder="Enter land description">
+                    <input class="input100" type="text" id="landDesc" name="landDesc" placeholder="Enter land description">
                     <span class="focus-input100"></span>
                 </div>
                 <div class="wrap-input100 validate-input" data-validate="Type is required">
                     <span class="label-input100">Land Type:</span>
-                    <select class="form-control" id="selling_type" name="selling_type">
-                        <option  value="for lease">For Lease</option>
-                        <option  value="not for lease"> Not For Lease</option>
+                    <select class="form-control" id="sellingType" name="sellingType">
+                        <option value="{{ForSale}}">For Sale</option>
+                        <option value="{{ToLet}}">To Let</option>
                     </select>
                     <span class="focus-input100"></span>
                 </div>
 
                 <div class="wrap-input100 validate-input" data-validate="Price is required">
                     <span class="label-input100">Land Price:</span>
-                    <input class="input100" type="number" name="name" placeholder="Enter land price">
+                    <input class="input100" type="number" id="landPrice" name="landPrice" placeholder="Enter land price">
                     <span class="focus-input100"></span>
                 </div>
 
                 <div class="wrap-input100 validate-input" data-validate="Land purpose is required">
                     <span class="label-input100">Land Purpose:</span>
-                    <select class="form-control" id="selling_type" name="selling_type">
-                        <option  value="Commercial">Commercial</option>
-                        <option  value="Residential"> Residential</option>
-                        <option  value="Industrial"> Industrial</option>
-                        <option  value="Special"> Special</option>
+                    <select class="form-control" id="landPurpose" name="landPurpose">
+                        <option value="{{Commercial}}">Commercial</option>
+                        <option value="{{Residential}}">Residential</option>
+                        <option value="{{Industrial}}">Industrial</option>
+                        <option value="{{Special}}">Special</option>
                     </select>
                     <span class="focus-input100"></span>
                 </div>
 
                 <div class="wrap-input100 validate-input" data-validate="Contact is required">
                     <span class="label-input100">Contact:</span>
-                    <input class="input100" type="number" name="name" placeholder="Enter owner's contact">
+                    <input class="input100" type="text" id="contact" name="contact" placeholder="Enter owner's contact">
                     <span class="focus-input100"></span>
                 </div>
 
                 <div class="wrap-input100 validate-input" data-validate="Location is required">
                     <span class="label-input100">Location:</span>
-                    <input class="input100" type="number" name="name" placeholder="Enter property location">
+                    <input class="input100" type="text" id="location" name="location" placeholder="Enter property location">
                     <span class="focus-input100"></span>
                 </div>
 
                 <div class="wrap-input100 validate-input" data-validate="Size is required">
                     <span class="label-input100">Size:</span>
-                    <input class="input100" type="number" name="name" placeholder="Enter property size">
+                    <input class="input100" type="number" id="size" name="size" placeholder="Enter property size">
                     <span class="focus-input100"></span>
                 </div>
 
