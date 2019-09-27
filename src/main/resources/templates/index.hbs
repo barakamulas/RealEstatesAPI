@@ -1,0 +1,100 @@
+{{#partial "content"}}
+
+
+    <div class="container-fluid">
+
+        <div class="row">
+            <div class="col-md-8">
+                <div class="row">
+
+                    <div class="col-md-6">
+                        <h2>Land</h2>
+
+                        {{#each sellings}}
+
+                            <div class="card">
+
+
+                                <img class="card-img-top" src="https://mdbootstrap.com/img/Photos/Others/images/43.jpg" alt="Card image cap">
+
+
+                                <div class="card-body">
+
+
+                                    <h4 class="card-title">{{land_name}}</h4>
+
+                                    <p class="card-text">Description: {{land_description}}</p>
+                                    <p class="card-text">Type: {{selling_type}}</p>
+                                    <p class="card-text">Price: {{land_price}}</p>
+                                    <p class="card-text">Purpose: {{purpose}}</p>
+                                    <p class="card-text">Owner's Contact: {{contact}}</p>
+                                    <p class="card-text">Size: {{size}} acres</p>
+
+
+                                </div>
+
+                            </div>
+
+
+                        {{/each}}
+
+                    </div>
+
+
+                    <div class="col-md-6">
+                        <h2>Buildings</h2>
+
+                        {{#each builts}}
+
+                        <div class="card">
+                            <div class="card-header">
+                                <h2>{{built_name}}</h2>
+                            </div>
+                            <div class="card-body">
+                                <p class="card-text">Description: {{built_description}}</p>
+                                <p class="card-text">Type: {{built_type}}</p>
+                                <p class="card-text">Price: {{built_price}}</p>
+                                <p class="card-text">Purpose: {{purpose}}</p>
+                                <p class="card-text">Owner's Contact: {{contact}}</p>
+                            </div>
+
+                        </div>
+
+                        {{/each}}
+
+                    </div>
+
+                </div>
+
+
+            </div>
+            <div clas="col-md-4">
+
+                <h2>Agents</h2>
+
+                {{#each agents}}
+
+                    <div class="card">
+                        <div class="card-header">
+                            <h2>{{agent_name}}</h2>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text">Contact: {{contact}}</p>
+                            <p class="card-text">Review: {{agent_reviews}}</p>
+                        </div>
+
+                    </div>
+                {{/each}}
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+{{/partial}}
+
+
+{{>layout.hbs}}

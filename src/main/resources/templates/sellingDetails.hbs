@@ -1,0 +1,36 @@
+{{#partial "content"}}
+
+    <div class="container">
+    <div class="card sellingCard">
+        {{#each sellings}}
+
+            <div class="card-header">
+            <h2>{{land_name}}</h2>
+        </div>
+        <div class="card-body">
+            <img class="card-img-top" src="images/landingHome.jpg" alt="Card image cap">
+            <p class="card-text">Land Description: {{land_description}}</p>
+            <p class="card-text">Type: {{selling_type}}</p>
+            <p class="card-text">Price: {{land_price}}</p>
+            <p class="card-text">Purpose: {{purpose}}</p>
+            <p class="card-text">Contact: {{contact}}</p>
+            <p class="card-text">Location: {{land_location}}</p>
+            <p class="card-text">Size: {{size}}</p>
+        </div>
+        <div class="card-footer">
+            <ul class="nav nav-pills card-header-pills">
+                <li class="nav-item">
+                    <a class="nav-link"  class="btn btn-danger">Delete</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link"  class="btn btn-primary">Edit</a>
+                </li>
+            </ul>
+        </div>
+    {{/each}}
+    </div>
+
+</div>
+
+    {{/partial}}
+{{>layout.hbs}}
