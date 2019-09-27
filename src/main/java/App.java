@@ -37,9 +37,19 @@ public class App {
             return new ModelAndView(model,"index.hbs");
           },new HandlebarsTemplateEngine());
 
+
           get("/agentform",(request, response) -> {
               return new ModelAndView(model,"agentform.hbs");
           },new HandlebarsTemplateEngine());
+<<<<<<< HEAD
+=======
+
+          get("/sellingform",(request, response) -> {
+            return new ModelAndView(model,"sellingform.hbs");
+         },new HandlebarsTemplateEngine());
+
+
+>>>>>>> 5635ec5d1c5bbdd03105564cd4e7b8df55251949
 
           get("/api/built","application/json",(request, response) -> {
               response.type("application/json");
