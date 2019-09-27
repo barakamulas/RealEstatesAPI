@@ -25,29 +25,22 @@ public class App {
       String connectionString = "jdbc:h2:~/realestatesapi.db;INIT=RUNSCRIPT from 'classpath:db/create.sql'";
       Sql2o sql2o = new Sql2o(connectionString,"","");
 
-
-
-
         builtDao = new Sql2oBuiltDao(sql2o);
         sellingDao = new Sql2oSellingDao(sql2o);
         agentDao = new Sql2oAgentDao(sql2o);
         conn = sql2o.open();
-
-      
         Map<String,Object> model = new HashMap<>();
 
-          get("/",(req,res)->{
+         get("/",(req,res)->{
             return new ModelAndView(model,"index.hbs");
-          },new HandlebarsTemplateEngine());
+                },new HandlebarsTemplateEngine());
 
 
-       
-
-        get("/apis",(request, response) -> {
+         get("/apis",(request, response) -> {
             return new ModelAndView(model,"api.hbs");
-        },new HandlebarsTemplateEngine());
+                },new HandlebarsTemplateEngine());
 
-          get("/builts/new",(request, response) -> {
+         get("/builts/new",(request, response) -> {
              model.put("ForSale", Constant.FOR_SALE);
              model.put("ToLet", Constant.TO_LET);
              model.put("Commercial", Constant.COMMERCIAL);
@@ -56,51 +49,17 @@ public class App {
              model.put("Special", Constant.SPECIAL);
              model.put("built", true);
              return new ModelAndView(model,"built-form.hbs");
-          },new HandlebarsTemplateEngine());
+                },new HandlebarsTemplateEngine());
 
-        post("/builts/new",(request, response) -> {
-            String built_name = request.queryParams("name");
-            String built_description = request.queryParams("description");
-            String built_location = request.queryParams("location");
-            int built_price = Integer.parseInt(request.queryParams("price"));
-            String type = request.queryParams("type");
-            String purpose = request.queryParams("purpose");
-            String contact = request.queryParams("contact");
-            Built newBuilt = new Built(built_name,built_description,built_location,built_price,type,purpose,contact);
-            builtDao.add(newBuilt);
-            response.redirect("/");
-            return null;
-        },new HandlebarsTemplateEngine());
-
-        post("/agentbuilts/new",(request, response) -> {
-            String built_name = request.queryParams("name");
-            String built_description = request.queryParams("description");
-            String built_location = request.queryParams("location");
-            int built_price = Integer.parseInt(request.queryParams("price"));
-            String type = request.queryParams("type");
-            String purpose = request.queryParams("purpose");
-            String contact = request.queryParams("contact");
-            String agent_name = request.queryParams("agent_name");
-            String agent_contact = request.queryParams("agent_contact");
-            Agent newAgent = new Agent(agent_name,agent_contact,"Good");
-            agentDao.add(newAgent);
-            AgentBuilt newAgentBuilt = new AgentBuilt(built_name,built_description,built_location,built_price,type,purpose,contact,newAgent.getId());
-            response.redirect("/");
-            return null;
-        },new HandlebarsTemplateEngine());
-
-
-
-        get("/agentbuilts/new",(request, response) -> {
+         get("/agentbuilts/new",(request, response) -> {
               model.put("ForSale", Constant.FOR_SALE);
               model.put("ToLet", Constant.TO_LET);
               model.put("Commercial", Constant.COMMERCIAL);
               model.put("Residential", Constant.RESIDENTIAL);
               model.put("Industrial", Constant.INDUSTRIAL);
               model.put("Special", Constant.SPECIAL);
-              return new ModelAndView(model,"built-form.hbs");
-          },new HandlebarsTemplateEngine());
-
+          return new ModelAndView(model,"built-form.hbs");
+                },new HandlebarsTemplateEngine());
 
           get("/agentform",(request, response) -> {
               return new ModelAndView(model,"agentform.hbs");
@@ -109,9 +68,6 @@ public class App {
           get("/sellingform",(request, response) -> {
             return new ModelAndView(model,"sellingform.hbs");
          },new HandlebarsTemplateEngine());
-
-
-
 
           get("/api/built","application/json",(request, response) -> {
               response.type("application/json");
@@ -161,6 +117,36 @@ public class App {
               response.type("application/json");
               return gson.toJson(agent);
           });
+            post("/builts/new",(request, response) -> {
+                String built_name = request.queryParams("name");
+                String built_description = request.queryParams("description");
+                String built_location = request.queryParams("location");
+                int built_price = Integer.parseInt(request.queryParams("price"));
+                String type = request.queryParams("type");
+                String purpose = request.queryParams("purpose");
+                String contact = request.queryParams("contact");
+                Built newBuilt = new Built(built_name,built_description,built_location,built_price,type,purpose,contact);
+                builtDao.add(newBuilt);
+                response.redirect("/");
+                return null;
+            },new HandlebarsTemplateEngine());
+
+            post("/agentbuilts/new",(request, response) -> {
+                String built_name = request.queryParams("name");
+                String built_description = request.queryParams("description");
+                String built_location = request.queryParams("location");
+                int built_price = Integer.parseInt(request.queryParams("price"));
+                String type = request.queryParams("type");
+                String purpose = request.queryParams("purpose");
+                String contact = request.queryParams("contact");
+                String agent_name = request.queryParams("agent_name");
+                String agent_contact = request.queryParams("agent_contact");
+                Agent newAgent = new Agent(agent_name,agent_contact,"Good");
+                agentDao.add(newAgent);
+                AgentBuilt newAgentBuilt = new AgentBuilt(built_name,built_description,built_location,built_price,type,purpose,contact,newAgent.getId());
+                response.redirect("/");
+                return null;
+        },new HandlebarsTemplateEngine());
     }
 
 }
