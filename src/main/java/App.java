@@ -42,7 +42,8 @@ public class App {
             return new ModelAndView(model,"index.hbs");
           },new HandlebarsTemplateEngine());
 
-          get("/form",(req, res) -> {
+
+          get("/agentform",(request, response) -> {
               return new ModelAndView(model,"agentform.hbs");
           },new HandlebarsTemplateEngine());
 
