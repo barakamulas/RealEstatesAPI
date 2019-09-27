@@ -1,36 +1,94 @@
 {{#partial "content"}}
 
-    <div class="container-contact100">
+    <div class="container-contact100 pt-5">
         <div class="contact100-map" id="google_map" data-map-x="40.722047" data-map-y="-73.986422" data-pin="images/icons/map-marker.png" data-scrollwhell="0" data-draggable="1"></div>
 
         <div class="wrap-contact100">
-            <div class="contact100-form-title">
+            <div class="contact100-form-title" style="background-image: url(images/landingHome.jpg);">
 				<span class="contact100-form-title-1">
-					Add a new property
+					Add a property.
 				</span>
                 <span class="contact100-form-title-2">
-					Feel free to drop a new land property here.
+					Feel free to add a new property.
 				</span>
             </div>
-
-            <form class="contact100-form validate-form">
+            <form class="contact100-form validate-form pt-5" method="POST">
                 <div class="wrap-input100 validate-input" data-validate="Name is required">
                     <span class="label-input100">Property Name:</span>
                     <input class="input100" type="text" name="name" placeholder="Enter land name">
                     <span class="focus-input100"></span>
                 </div>
-                <div class="wrap-input100 validate-input" data-validate="Phone is required">
-                    <span class="label-input100">Phone:</span>
-                    <input class="input100" type="text" name="phone" placeholder="Enter phone number">
+                <div class="wrap-input100 validate-input" data-validate="Description is required">
+                    <span class="label-input100">Property description:</span>
+                    <input class="input100" type="text" name="name" placeholder="Enter land description">
                     <span class="focus-input100"></span>
                 </div>
-                <div class="container-contact100-form-btn">
-                    <button class="contact100-form-btn">
+                <div class="wrap-input100 validate-input" data-validate="Type is required">
+                    <span class="label-input100">Land Type:</span>
+                    <select class="form-control" id="selling_type" name="selling_type">
+                        <option  value="for lease">For Lease</option>
+                        <option  value="not for lease"> Not For Lease</option>
+                    </select>
+                    <span class="focus-input100"></span>
+                </div>
+
+                <div class="wrap-input100 validate-input" data-validate="Price is required">
+                    <span class="label-input100">Land Price:</span>
+                    <input class="input100" type="number" name="name" placeholder="Enter land price">
+                    <span class="focus-input100"></span>
+                </div>
+
+                <div class="wrap-input100 validate-input" data-validate="Land purpose is required">
+                    <span class="label-input100">Land Purpose:</span>
+                    <select class="form-control" id="selling_type" name="selling_type">
+                        <option  value="Commercial">Commercial</option>
+                        <option  value="Residential"> Residential</option>
+                        <option  value="Industrial"> Industrial</option>
+                        <option  value="Special"> Special</option>
+                    </select>
+                    <span class="focus-input100"></span>
+                </div>
+
+                <div class="wrap-input100 validate-input" data-validate="Contact is required">
+                    <span class="label-input100">Contact:</span>
+                    <input class="input100" type="number" name="name" placeholder="Enter owner's contact">
+                    <span class="focus-input100"></span>
+                </div>
+
+                <div class="wrap-input100 validate-input" data-validate="Location is required">
+                    <span class="label-input100">Location:</span>
+                    <input class="input100" type="number" name="name" placeholder="Enter property location">
+                    <span class="focus-input100"></span>
+                </div>
+
+                <div class="wrap-input100 validate-input" data-validate="Size is required">
+                    <span class="label-input100">Size:</span>
+                    <input class="input100" type="number" name="name" placeholder="Enter property size">
+                    <span class="focus-input100"></span>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="container-contact100-form-btn">
+                            <button class="contact100-form-btn">
 						<span>
 							Submit
 							<i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
 						</span>
-                    </button>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="container-contact100-form-btn">
+                            <button class="contact100-form-btn">
+						<span>
+                            Details
+                           <a href="/"></a> <i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i></a>
+
+						</span>
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </form>
         </div>
