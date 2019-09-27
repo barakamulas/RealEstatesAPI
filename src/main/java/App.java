@@ -147,6 +147,14 @@ public class App {
                 response.redirect("/");
                 return null;
         },new HandlebarsTemplateEngine());
+            post("/agents/new",(request, response) -> {
+                String agentName = request.queryParams("agentName");
+                String agentContact = request.queryParams("agentContact");
+                Agent newAgent = new Agent(agentName,agentContact,"Amazing");
+                agentDao.add(newAgent);
+                response.redirect("/");
+                return null;
+            },new HandlebarsTemplateEngine());
     }
 
 }
