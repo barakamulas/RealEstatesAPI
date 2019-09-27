@@ -162,6 +162,11 @@ public class App {
               response.type("application/json");
               return gson.toJson(sellingDao.all());
           });
+        get("/api/agentbuilts","application/json",(request, response) -> {
+            response.type("application/json");
+            return gson.toJson(agentBuiltDao.getAll());
+        });
+
           get("/api/agents","application/json",(request, response) -> {
               response.type("application/json");
               return gson.toJson(agentDao.getAgents());
