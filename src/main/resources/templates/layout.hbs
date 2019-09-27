@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <link rel="icon" href="/images/homeicon.png">
+    <title>{{#block "title"}}{{/block}}</title>
+
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/wickedcss.min.css">
+    <link rel="stylesheet" href="/css/animate.css">
+    <link href="https://fonts.googleapis.com/css?family=Aladin%7CBerkshire+Swash%7COleo+Script&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/app.css">
+<!--    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>-->
+<!--    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>-->
+</head>
+<body>
+<header>
+
+    <nav class="navbar  text-white">
+        <div class="container-fluid">
+            <div class="navbar-header ">
+                <a class="navbar-brand pulse" href="/"><img src="/images/homeicon.png" width="40px" height="40px" ></a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li> <a href="/agentform" class=" text-info intro" style="color: green;">Add Agent </a></li>
+                <li ><a href="/sellingform" class=" text-info intro" style="color: green;">Add selling</a></li>
+                <li> <a href="/builts/new" class=" text-info intro" style="color: green;">Add a Building </a></li>
+                <li ><a href="/agentbuilts/new" class=" text-info intro" style="color: green;">Add Building with Agent</a></li>
+                <li ><a href="/apis" class=" text-info intro" style="color: green;">APIs</a></li>
+            </ul>
+
+        </div>
+    </nav>
+</header>
+<body class="bg-overlay">
+{{#block "content"}}
+
+{{/block}}
+
+
+
+{{#block "footer"}}
+
+</body>
+</html>
+{{/block}}
