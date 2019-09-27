@@ -1,7 +1,5 @@
 {{#partial "content"}}
 
-
-
        <div class="container-contact100">
            <div class="contact100-map" id="google_map" data-map-x="40.722047" data-map-y="-73.986422" data-pin="images/icons/map-marker.png" data-scrollwhell="0" data-draggable="1"></div>
 
@@ -11,9 +9,7 @@
 					Add a Building
 				</span>
 
-               </div>
-
-               <form class="contact100-form validate-form" action="/agentbuilts/new" method="POST">
+               <form class="contact100-form validate-form" action="/agentsbuilts/new" method="POST">
                    <div class="wrap-input100 validate-input" data-validate="Name is required">
                        <span class="label-input100" for="name">Name of Building:</span>
                        <input class="input100" type="text" id="name" name="name" placeholder="Enter full name">
@@ -34,22 +30,21 @@
                        <input class="input100" type="number" id="price" name="price" placeholder="Enter phone number">
                        <span class="focus-input100"></span>
                    </div>
-                   <div class="wrap-input100 validate-input" data-validate="Land purpose is required">
-                       <span class="label-input100">Type:</span>
-                       <select class="form-control" id="selling_type" name="selling_type">
-                           <option  value="{{ForSale}}">For Sale</option>
-                           <option  value="{{ToLet}}"> To Let</option>
-
+                   <div class="wrap-input100 validate-input" data-validate="Phone is required">
+                       <span class="label-input100" for="type">Type:</span>
+                       <select class="input100" type="text" id="type" name="type" placeholder="Enter phone number">
+                           <option value="{{ForSale}}">For Sale</option>
+                           <option value="{{ToLet}}">To Let</option>
                        </select>
                        <span class="focus-input100"></span>
                    </div>
-                   <div class="wrap-input100 validate-input" data-validate="Land purpose is required">
-                       <span class="label-input100">Purpose:</span>
-                       <select class="form-control" id="selling_type" name="selling_type">
-                           <option  value="{{Commercial}}">Commercial</option>
-                           <option  value="{{Residential}}"> Residential</option>
-                           <option  value="{{Industrial}}"> Industrial</option>
-                           <option  value="{{Special}}"> Special</option>
+                   <div class="wrap-input100 validate-input" data-validate="Phone is required">
+                       <span class="label-input100" for="purpose">Purpose:</span>
+                       <select class="input100" type="text" id="purpose" name="purpose" placeholder="Enter phone number">
+                           <option value="{{Commercial}}">Commercial</option>
+                           <option value="{{Residential}}">Residential</option>
+                           <option value="{{Industrial}}">Industrial</option>
+                           <option value="{{Special}}">Special</option>
                        </select>
                        <span class="focus-input100"></span>
                    </div>
@@ -69,7 +64,7 @@
                </form>
            </div>
        </div>
-
+       </div>
 
 {{/partial}}
 

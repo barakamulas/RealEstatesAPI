@@ -173,7 +173,16 @@ public class App {
                 AgentBuilt newAgentBuilt = new AgentBuilt(built_name,built_description,built_location,built_price,type,purpose,contact,newAgent.getId());
                 response.redirect("/");
                 return null;
-        },new HandlebarsTemplateEngine());
+            },new HandlebarsTemplateEngine());
+
+            post("/agents/new",(request, response) -> {
+                String agentName = request.queryParams("agentName");
+                String agentContact = request.queryParams("agentContact");
+                Agent newAgent = new Agent(agentName,agentContact,"Amazing");
+                agentDao.add(newAgent);
+                response.redirect("/");
+                return null;
+            },new HandlebarsTemplateEngine());
     }
 
 }
