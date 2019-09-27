@@ -123,6 +123,7 @@ public class App {
               response.type("application/json");
               return gson.toJson(builtDao.findById(builtId));
           });
+
           post("/api/built/new","application/json",(request, response) -> {
               Built built = gson.fromJson(request.body(),Built.class);
               builtDao.add(built);
@@ -175,14 +176,6 @@ public class App {
                 return null;
             },new HandlebarsTemplateEngine());
 
-            post("/agents/new",(request, response) -> {
-                String agentName = request.queryParams("agentName");
-                String agentContact = request.queryParams("agentContact");
-                Agent newAgent = new Agent(agentName,agentContact,"Amazing");
-                agentDao.add(newAgent);
-                response.redirect("/");
-                return null;
-            },new HandlebarsTemplateEngine());
     }
 
 }
