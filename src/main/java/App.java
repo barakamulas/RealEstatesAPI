@@ -39,15 +39,24 @@ public class App {
         Map<String,Object> model = new HashMap<>();
 
          get("/",(req,res)->{
+             model.put("sellings", sellingDao.all());
+             model.put("builts",builtDao.getAll());
+             model.put("agents",agentDao.getAgents());
+             model.put("agentbuilts",agentBuiltDao.getAll());
             return new ModelAndView(model,"index.hbs");
-                },new HandlebarsTemplateEngine());
+         },new HandlebarsTemplateEngine());
 
 
-        get("/apis",(request, response) -> {   
+        get("/apis",(request, response) -> {
+            model.put("sellings", sellingDao.all());
+            model.put("builts",builtDao.getAll());
+            model.put("agents",agentDao.getAgents());
+            model.put("agentbuilts",agentBuiltDao.getAll());
             return new ModelAndView(model,"api.hbs");
-                },new HandlebarsTemplateEngine());
+        },new HandlebarsTemplateEngine());
 
          get("/builts/new",(request, response) -> {
+             model.put("sellings", sellingDao.all());
              model.put("ForSale", Constant.FOR_SALE);
              model.put("ToLet", Constant.TO_LET);
              model.put("Commercial", Constant.COMMERCIAL);
@@ -59,6 +68,7 @@ public class App {
                 },new HandlebarsTemplateEngine());
 
          get("/agentbuilts/new",(request, response) -> {
+
               model.put("ForSale", Constant.FOR_SALE);
               model.put("ToLet", Constant.TO_LET);
               model.put("Commercial", Constant.COMMERCIAL);
@@ -82,6 +92,10 @@ public class App {
             agentDao.add(newAgent);
             AgentBuilt newAgentBuilt = new AgentBuilt(built_name,built_description,built_location,built_price,type,purpose,contact,newAgent.getId());
             agentBuiltDao.add(newAgentBuilt);
+            model.put("sellings", sellingDao.all());
+            model.put("builts",builtDao.getAll());
+            model.put("agents",agentDao.getAgents());
+            model.put("agentbuilts",agentBuiltDao.getAll());
             response.redirect("/");
             return null;
         },new HandlebarsTemplateEngine());
@@ -171,6 +185,11 @@ public class App {
                 Agent newAgent = new Agent(agent_name,agent_contact,"Good");
                 agentDao.add(newAgent);
                 AgentBuilt newAgentBuilt = new AgentBuilt(built_name,built_description,built_location,built_price,type,purpose,contact,newAgent.getId());
+                agentBuiltDao.add(newAgentBuilt);
+                model.put("sellings", sellingDao.all());
+                model.put("builts",builtDao.getAll());
+                model.put("agents",agentDao.getAgents());
+                model.put("agentbuilts",agentBuiltDao.getAll());
                 response.redirect("/");
                 return null;
         },new HandlebarsTemplateEngine());
