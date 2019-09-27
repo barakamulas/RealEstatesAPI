@@ -29,7 +29,7 @@ One can also view property that is added by an agent in the website and also con
 * Christine Njeri
 * Wendy Omollo
 
-##Tech used
+## Tech used
 * Java
 * Spark
 * JSON
