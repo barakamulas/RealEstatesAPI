@@ -5,6 +5,7 @@
     background-repeat: no-repeat;
     background-size:cover;
     background-position: center-center;
+    background-size: 1500px 1200px;
     font-style:italic;
     overflow-x: hidden;
     background:rgba(0,0,0.0.9);
@@ -172,6 +173,7 @@ a:focus {
 
 a:hover {
 	text-decoration: none;
+	color:blue;
 }
 
 /*---------------------------------------------*/
@@ -308,6 +310,7 @@ iframe {
   flex-wrap: wrap;
   flex-direction: column;
   align-items: center;
+
 
   background-repeat: no-repeat;
   background-size: cover;
