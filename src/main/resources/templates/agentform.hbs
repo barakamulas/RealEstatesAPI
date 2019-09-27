@@ -4,7 +4,7 @@
         <div class="contact100-map" id="google_map" data-map-x="40.722047" data-map-y="-73.986422" data-pin="images/icons/map-marker.png" data-scrollwhell="0" data-draggable="1"></div>
 
         <div class="wrap-contact100">
-            <div class="contact100-form-title" style="background-image: url(images/bg-01.jpg);">
+            <div class="contact100-form-title" style="background-image: url(images/landingHome.jpg);">
 				<span class="contact100-form-title-1">
 					Add an agent
 				</span>
@@ -12,17 +12,18 @@
 					Feel free to drop an agent's contact
 				</span>
             </div>
-            <form class="contact100-form validate-form" method="POST">
+            <form class="contact100-form validate-form" action="/agents/new" method="POST">
                 <div class="wrap-input100 validate-input" data-validate="Name is required">
                     <span class="label-input100">Full Name:</span>
-                    <input class="input100" type="text" name="name" placeholder="Enter full name">
+                    <input class="input100" id="agentName"type="text" name="agentName" placeholder="Enter full name">
                     <span class="focus-input100"></span>
                 </div>
                 <div class="wrap-input100 validate-input" data-validate="Phone is required">
                     <span class="label-input100">Phone:</span>
-                    <input class="input100" type="text" name="phone" placeholder="Enter phone number">
+                    <input class="input100" id="agentContact" type="text" name="agentContact" placeholder="Enter phone number">
                     <span class="focus-input100"></span>
                 </div>
+
 
                 <div class="container-contact100-form-btn">
                     <button class="contact100-form-btn">

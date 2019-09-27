@@ -1,4 +1,5 @@
 import models.*;
+import models.dao.SellingDao;
 import models.dao.Sql2oAgentBuiltDao;
 import models.dao.Sql2oAgentDao;
 import models.dao.Sql2oBuiltDao;
@@ -103,14 +104,44 @@ public class App {
 
 
           get("/agentform",(request, response) -> {
+
               return new ModelAndView(model,"agentform.hbs");
           },new HandlebarsTemplateEngine());
 
+
           get("/sellingform",(request, response) -> {
+              model.put("ForSale", Constant.FOR_SALE);
+              model.put("ToLet", Constant.TO_LET);
+              model.put("Commercial", Constant.COMMERCIAL);
+              model.put("Residential", Constant.RESIDENTIAL);
+              model.put("Industrial", Constant.INDUSTRIAL);
+              model.put("Special", Constant.SPECIAL);
             return new ModelAndView(model,"sellingform.hbs");
          },new HandlebarsTemplateEngine());
 
+
+        post("/sellings/new",(request, response) -> {
+            String land_name = request.queryParams("landName");
+            String landing_description = request.queryParams("landDesc");
+            String selling_type = request.queryParams("sellingType");
+            int land_price = Integer.parseInt(request.queryParams("landPrice"));
+            String purpose = request.queryParams("landPurpose");
+            String contact = request.queryParams("contact");
+            String land_location = request.queryParams("location");
+            int size = Integer.parseInt(request.queryParams("size"));
+            Selling newSelling = new Selling(land_name,landing_description,selling_type,land_price,purpose,contact,land_location,size);
+            sellingDao.add(newSelling);
+            response.redirect("/");
+            return null;
+        },new HandlebarsTemplateEngine());
+
+        get("/selling/details",(req,res)->{
+            model.put("sellings", sellingDao.all());
+            return new ModelAndView(model,"sellingDetails.hbs");
+        },new HandlebarsTemplateEngine());
+
           get("/api/built","application/json",(request, response) -> {
+
               response.type("application/json");
               return gson.toJson(builtDao.getAll());
           });
@@ -137,6 +168,7 @@ public class App {
               response.type("application/json");
               return gson.toJson(builtDao.findById(builtId));
           });
+
           post("/api/built/new","application/json",(request, response) -> {
               Built built = gson.fromJson(request.body(),Built.class);
               builtDao.add(built);
@@ -192,7 +224,8 @@ public class App {
                 model.put("agentbuilts",agentBuiltDao.getAll());
                 response.redirect("/");
                 return null;
-        },new HandlebarsTemplateEngine());
+            },new HandlebarsTemplateEngine());
+
     }
 
 }
