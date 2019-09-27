@@ -1,4 +1,5 @@
 import models.*;
+import models.dao.Sql2oAgentBuiltDao;
 import models.dao.Sql2oAgentDao;
 import models.dao.Sql2oBuiltDao;
 import models.dao.Sql2oSellingDao;
@@ -19,6 +20,7 @@ public class App {
       Sql2oBuiltDao builtDao;
       Sql2oSellingDao sellingDao;
       Sql2oAgentDao agentDao;
+      Sql2oAgentBuiltDao agentBuiltDao;
       Connection conn;
       Gson gson = new Gson();
 
@@ -27,7 +29,7 @@ public class App {
 
 
 
-
+        agentBuiltDao = new Sql2oAgentBuiltDao(sql2o);
         builtDao = new Sql2oBuiltDao(sql2o);
         sellingDao = new Sql2oSellingDao(sql2o);
         agentDao = new Sql2oAgentDao(sql2o);
@@ -39,9 +41,6 @@ public class App {
           get("/",(req,res)->{
             return new ModelAndView(model,"index.hbs");
           },new HandlebarsTemplateEngine());
-
-
-       
 
         get("/apis",(request, response) -> {
             return new ModelAndView(model,"api.hbs");
@@ -72,6 +71,18 @@ public class App {
             return null;
         },new HandlebarsTemplateEngine());
 
+
+
+        get("/agentbuilts/new",(request, response) -> {
+              model.put("ForSale", Constant.FOR_SALE);
+              model.put("ToLet", Constant.TO_LET);
+              model.put("Commercial", Constant.COMMERCIAL);
+              model.put("Residential", Constant.RESIDENTIAL);
+              model.put("Industrial", Constant.INDUSTRIAL);
+              model.put("Special", Constant.SPECIAL);
+              return new ModelAndView(model,"agentbuilt-form.hbs");
+          },new HandlebarsTemplateEngine());
+
         post("/agentbuilts/new",(request, response) -> {
             String built_name = request.queryParams("name");
             String built_description = request.queryParams("description");
@@ -85,21 +96,10 @@ public class App {
             Agent newAgent = new Agent(agent_name,agent_contact,"Good");
             agentDao.add(newAgent);
             AgentBuilt newAgentBuilt = new AgentBuilt(built_name,built_description,built_location,built_price,type,purpose,contact,newAgent.getId());
+            agentBuiltDao.add(newAgentBuilt);
             response.redirect("/");
             return null;
         },new HandlebarsTemplateEngine());
-
-
-
-        get("/agentbuilts/new",(request, response) -> {
-              model.put("ForSale", Constant.FOR_SALE);
-              model.put("ToLet", Constant.TO_LET);
-              model.put("Commercial", Constant.COMMERCIAL);
-              model.put("Residential", Constant.RESIDENTIAL);
-              model.put("Industrial", Constant.INDUSTRIAL);
-              model.put("Special", Constant.SPECIAL);
-              return new ModelAndView(model,"built-form.hbs");
-          },new HandlebarsTemplateEngine());
 
 
           get("/agentform",(request, response) -> {
