@@ -42,10 +42,14 @@ public class App {
             return new ModelAndView(model,"index.hbs");
           },new HandlebarsTemplateEngine());
 
-          get("/form",(request, response) -> {
+          get("/form",(req, res) -> {
               return new ModelAndView(model,"agentform.hbs");
           },new HandlebarsTemplateEngine());
-        
+
+          get("/new/selling",(req,res)->{
+             return new ModelAndView(model,"sellingform.hbs");
+          },new HandlebarsTemplateEngine());
+
 
           get("/api/built","application/json",(request, response) -> {
               response.type("application/json");
