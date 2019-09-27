@@ -1,15 +1,14 @@
 
-     body{
-    color: white;
-    background: url('/images/landingCurrent.jpg'), rgba(0,0,0,.7);
-    background-repeat: no-repeat;
-    background-size:cover;
-    background-position: center-center;
-    background-size: 1500px 1200px;
-    font-style:italic;
-    overflow-x: hidden;
-    background:rgba(0,0,0.0.9);
+    /*---------overlay------------*/
+    .bg-overlay {
+        background: linear-gradient(rgba(0,0,0,.3), rgba(0,0,0,.3)), url('/images/landingCurrent.jpg');
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: 1700px 1500px;
+        color: #fff;
+
     }
+
 
 .content {
       width: 94%;
@@ -603,6 +602,7 @@ textarea.input100 {
   }
 }
 
+
 strong {
 	font-weight: bold;
 }
@@ -704,5 +704,10 @@ tbody:hover td {
 tbody:hover tr:hover td {
 	color: #444;
 	text-shadow: 0 1px 0 #fff;
+}
+
+.sellingCard{
+background-color: white;
+
 }
 

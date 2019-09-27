@@ -15,6 +15,11 @@ public class Agent {
         this.id = id;
     }
 
+    public Agent(String agent_name,String contact) {
+        this.contact = contact;
+        this.agent_name = agent_name;
+    }
+
     public String getAgent_name() {
         return agent_name;
     }
